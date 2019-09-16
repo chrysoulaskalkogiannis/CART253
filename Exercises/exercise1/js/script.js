@@ -15,6 +15,12 @@ let squareX;
 let squareY;
 let squareSize = 100;
 
+// Position and size of Oval
+let ovalX = 1
+let ovalY= 320
+let ovalSizeX = 20;
+let ovalSizeY = 80;
+
 
 // preload()
 //
@@ -42,6 +48,8 @@ function setup() {
   // We divide the size by two because we're drawing from the center
   squareX = width + squareSize/2;
   squareY = height + squareSize/2;
+
+
 
   // We'll draw rectangles from the center
   rectMode(CENTER);
@@ -73,4 +81,9 @@ function draw() {
   fill(0,0,255,10);
   // Display the square
   rect(squareX,squareY,squareSize,squareSize);
+
+
+  ovalX++;
+  fill(0,100,0,40)
+  ellipse(ovalX,ovalY,ovalSizeX,ovalSizeY);
 }
