@@ -82,8 +82,13 @@ function draw() {
   // Display the square
   rect(squareX,squareY,squareSize,squareSize);
 
-
+// Green oval moving across the screen
   ovalX++;
   fill(0,100,0,40)
   ellipse(ovalX,ovalY,ovalSizeX,ovalSizeY);
+
+//Purple square
+  fill(200,0,200,10);
+  //drawing the square
+  rect(mouseX,mouseY,90,90);
 }
