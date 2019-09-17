@@ -89,6 +89,11 @@ function draw() {
 
 //Purple square
   fill(200,0,200,10);
-  //drawing the square
+  //drawing the square and have it in mouse location
   rect(mouseX,mouseY,90,90);
+
+//Yellow circle
+  fill(251, 255, 0);
+  //draw yellow circle and reverse the mouse direction
+  ellipse(mouseY,mouseX,90,90);
 }
