@@ -56,6 +56,12 @@ function draw() {
   // A pink background
   background(255,220,220);
 
+textAlign(RIGHT,TOP);
+textSize(60);
+fill(0);
+text(dodges,width,0);
+
+
   // Default the avatar's velocity to 0 in case no key is pressed this frame
   avatarVX = 0;
   avatarVY = 0;
