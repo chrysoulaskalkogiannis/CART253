@@ -109,6 +109,10 @@ text(dodges,width,0);
     avatarY = height/2;
     // Reset the dodge counter
     dodges = 0;
+    //resets enemy size
+    enemySize = 50;
+    //resets enemy spees
+    enemySpeed = 5;
   }
 
   // Check if the avatar has gone off the screen (cheating!)
@@ -126,6 +130,10 @@ text(dodges,width,0);
   if (enemyX > width) {
     // This means the player dodged so update its dodge statistic
     dodges = dodges + 1;
+    // enemy increases size when player succesfully dodges
+    enemySize = enemySize + 10;
+    //increases enemy speed when player succesfully dodges 
+    enemySpeed = enemySpeed + 1;
     // Tell them how many dodges they have made
     console.log(dodges + " DODGES!");
     // Reset the enemy's position to the left at a random height
