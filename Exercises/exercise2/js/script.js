@@ -34,7 +34,7 @@ let dodges = 0;
 // Make the canvas, position the avatar and anemy
 function setup() {
   // Create our playing area
-  createCanvas(500,500);
+  createCanvas(700,700);
 
   // Put the avatar in the centre
   avatarX = width/2;
@@ -54,10 +54,11 @@ function setup() {
 // game over situations.
 function draw() {
   // A pink background
-  background(255,220,220);
+  background(0,220,0);
 
 textAlign(RIGHT,TOP);
 textSize(60);
+noStroke();
 fill(0);
 text(dodges,width,0);
 
@@ -131,8 +132,8 @@ text(dodges,width,0);
     // This means the player dodged so update its dodge statistic
     dodges = dodges + 1;
     // enemy increases size when player succesfully dodges
-    enemySize = enemySize + 10;
-    //increases enemy speed when player succesfully dodges 
+    enemySize = enemySize + 5;
+    //increases enemy speed when player succesfully dodges
     enemySpeed = enemySpeed + 1;
     // Tell them how many dodges they have made
     console.log(dodges + " DODGES!");
@@ -144,14 +145,18 @@ text(dodges,width,0);
   // Display the number of successful dodges in the console
   console.log(dodges);
 
-  // The player is black
-  fill(0);
+  // The player is blue
+  strokeWeight(3);
+  stroke(255,0,0);
+  fill(0,0,255,);
   // Draw the player as a circle
-  ellipse(avatarX,avatarY,avatarSize,avatarSize);
+  rect(avatarX,avatarY,avatarSize,avatarSize);
 
-  // The enemy is red
-  fill(255,0,0);
+  // The enemy is purple
+
+  fill(167,25,189);
+  noStroke();
   // Draw the enemy as a circle
-  ellipse(enemyX,enemyY,enemySize,enemySize);
+  rect(enemyX,enemyY,25,enemySize);
 
 }
