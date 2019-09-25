@@ -53,15 +53,8 @@ function setup() {
 // Handle moving the avatar and enemy and checking for dodges and
 // game over situations.
 function draw() {
-  // A pink background
+  // A green background
   background(0,220,0);
-
-textAlign(RIGHT,TOP);
-textSize(60);
-noStroke();
-fill(0);
-text(dodges,width,0);
-
 
   // Default the avatar's velocity to 0 in case no key is pressed this frame
   avatarVX = 0;
@@ -142,21 +135,32 @@ text(dodges,width,0);
     enemyY = random(0,height);
   }
 
+//makes the background red when score is 5 or higher
+  if(dodges>=5){
+    background(255,0,0);
+  }
+
   // Display the number of successful dodges in the console
   console.log(dodges);
 
   // The player is blue
   strokeWeight(3);
-  stroke(255,0,0);
-  fill(0,0,255,);
+  stroke(0,0,255);
+  fill(0,92,90);
   // Draw the player as a circle
   rect(avatarX,avatarY,avatarSize,avatarSize);
 
   // The enemy is purple
-
-  fill(167,25,189);
+  fill(44,0,92);
   noStroke();
   // Draw the enemy as a circle
-  rect(enemyX,enemyY,25,enemySize);
+  rect(enemyX,enemyY,enemySize,enemySize);
+
+//displays score
+  textAlign(RIGHT,TOP);
+  textSize(60);
+  noStroke();
+  fill(0);
+  text(dodges,width,0);
 
 }
