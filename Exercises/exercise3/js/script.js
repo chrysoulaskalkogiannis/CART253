@@ -120,6 +120,22 @@ function setup() {
 // Displays the game over screen if the player has won,
 // otherwise nothing (all the gameplay stuff is in mousePressed())
 function draw() {
+//draw the rectangle for the UI
+fill(255)
+rect(1400,0,500,150);
+
+//Draw the dog in the UI
+image(targetImage,1475,45);
+
+//text for the UI
+textFont("Helvetica");
+textSize(50);
+textAlign(CENTER,CENTER);
+noStroke();
+fill(0);
+text("Lost Dog!",1650,50);
+text("Help bring him back",1655,110);
+
   if (gameOver) {
     // Prepare our typography
     textFont("Helvetica");
