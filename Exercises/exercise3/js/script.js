@@ -36,6 +36,13 @@ let numDecoys = 100;
 // Keep track of whether they've won
 let gameOver = false;
 
+//randm movement of dog when found
+let x;
+let y;
+let velocityX;
+let velocityY;
+let speedChange = 1;
+
 // preload()
 //
 // Loads the target and decoy images before the program starts
@@ -62,6 +69,12 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
   background("#ffff00");
   imageMode(CENTER);
+
+//Setup for dog going home on Game Over
+  x = width/2;
+  y = height/2;
+  velocityX = 0;
+  velocityY = 0;
 
   // Use a for loop to draw as many decoys as we need
   for (let i = 0; i < numDecoys; i++) {
@@ -141,6 +154,9 @@ text("Lost Dog!",1650,50);
 text("Help bring him back",1655,110);
 
   if (gameOver) {
+
+
+    background("#ffff00");
     // Prepare our typography
     textFont("Helvetica");
     textSize(128);
@@ -149,14 +165,16 @@ text("Help bring him back",1655,110);
     fill(random(255));
 
     // Tell them they won!
-    text("YOU WINNED!",width/2,height/2);
+    text("YOU BROUGHT HIM HOME",width/2,height/2);
 
-    // Draw a circle around the sausage dog to show where it is (even though
-    // they already know because they found it!)
-    noFill();
-    stroke(random(255));
-    strokeWeight(10);
-    ellipse(targetX,targetY,targetImage.width,targetImage.height);
+
+    //Dog walking home after being found
+    velocityX += random(-speedChange,speedChange);
+    velocityY += random(-speedChange,speedChange);
+    x += velocityX;
+    y += velocityY;
+    image(targetImage,x,y);
+
   }
 }
 
@@ -173,6 +191,8 @@ function mousePressed() {
     // i.e. check if it's within the top and bottom of the image
     if (mouseY > targetY - targetImage.height/2 && mouseY < targetY + targetImage.height/2) {
       gameOver = true;
+
+
     }
   }
 }
