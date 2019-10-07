@@ -218,6 +218,8 @@ function checkEating() {
       preyHealth = preyMaxHealth;
       // Track how many prey were eaten
       preyEaten = preyEaten + 1;
+
+    playerRadius = playerRadius + 2;
     }
   }
 }
