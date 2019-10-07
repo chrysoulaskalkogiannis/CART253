@@ -25,6 +25,7 @@ let playerRadius = 25;
 let playerVX = 0;
 let playerVY = 0;
 let playerMaxSpeed = 2;
+let playerSprintSpeed = 5;
 // Player health
 let playerHealth;
 let playerMaxHealth = 255;
@@ -135,6 +136,13 @@ function handleInput() {
   }
   else {
     playerVY = 0;
+  }
+
+  if (keyIsDown(SHIFT)){
+    playerMaxSpeed =+ playerSprintSpeed;
+  }
+  else {
+    playerMaxSpeed = 2;
   }
 }
 
