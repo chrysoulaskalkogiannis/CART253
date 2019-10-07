@@ -219,7 +219,8 @@ function checkEating() {
       // Track how many prey were eaten
       preyEaten = preyEaten + 1;
 
-    playerRadius = playerRadius + 2;
+      playerRadius = playerRadius + 3;
+      playerMaxSpeed = playerMaxSpeed - 0.5;
     }
   }
 }
