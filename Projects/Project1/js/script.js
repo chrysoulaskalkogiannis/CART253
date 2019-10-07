@@ -14,6 +14,8 @@ Includes: Physics-based movement, keyboard controls, health/stamina,
 random movement, screen wrap.
 
 ******************************************************/
+let ghostImage;
+
 
 // Track whether the game is over
 let gameOver = false;
@@ -51,6 +53,11 @@ let preyFill = 200;
 let eatHealth = 10;
 // Number of prey eaten during the game (the "score")
 let preyEaten = 0;
+
+
+function preload(){
+  ghostImage = loadImage("assets/images/ghost.png.png")
+}
 
 // setup()
 //
@@ -267,7 +274,7 @@ function movePrey() {
 // Draw the prey as an ellipse with alpha based on health
 function drawPrey() {
   fill(preyFill, preyHealth);
-  ellipse(preyX, preyY, preyRadius * 2);
+  image(ghostImage, preyX, preyY, preyRadius * 2);
 }
 
 // drawPlayer()
