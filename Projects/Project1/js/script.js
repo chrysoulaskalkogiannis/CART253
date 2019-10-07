@@ -140,6 +140,7 @@ function handleInput() {
 
   if (keyIsDown(SHIFT)){
     playerMaxSpeed =+ playerSprintSpeed;
+      playerHealth = playerHealth - 1;
   }
   else {
     playerMaxSpeed = 2;
