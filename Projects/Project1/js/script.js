@@ -42,7 +42,10 @@ let preyVX;
 let preyVY;
 let preyMaxSpeed = 4;
 let preyTY = 5;
-let preyTX = 8;
+let preyTX = 9;
+
+let preyImageX = 50
+let preyImageY = 50
 // Prey health
 let preyHealth;
 let preyMaxHealth = 100;
@@ -101,6 +104,13 @@ function setupPlayer() {
 // When the game is over, shows the game over screen.
 function draw() {
   background(100, 100, 200);
+
+  textFont("Helvetica");
+textSize(20);
+textAlign(CENTER,CENTER);
+noStroke();
+fill(0);
+text(playerHealth, width / 7, height / 7);
 
   if (!gameOver) {
     handleInput();
@@ -226,8 +236,11 @@ function checkEating() {
       // Track how many prey were eaten
       preyEaten = preyEaten + 1;
 
+      //player gets bigger when he eats
       playerRadius = playerRadius + 3;
-      playerMaxSpeed = playerMaxSpeed - 0.5;
+
+      //player gets slower as he eats
+      playerMaxSpeed - 5;
     }
   }
 }
@@ -274,7 +287,9 @@ function movePrey() {
 // Draw the prey as an ellipse with alpha based on health
 function drawPrey() {
   fill(preyFill, preyHealth);
-  image(ghostImage, preyX, preyY, preyRadius * 2);
+  //ellipse(preyX, preyY, preyRadius * 2);
+  tint(255, preyHealth);
+  image(ghostImage, preyX, preyY, preyImageX, preyImageY);
 }
 
 // drawPlayer()
