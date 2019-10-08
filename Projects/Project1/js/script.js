@@ -16,6 +16,8 @@ random movement, screen wrap.
 ******************************************************/
 let ghostImage;
 
+let exampleSound;
+
 
 // Track whether the game is over
 let gameOver = false;
@@ -59,7 +61,8 @@ let preyEaten = 0;
 
 
 function preload(){
-  ghostImage = loadImage("assets/images/ghost.png.png")
+  ghostImage = loadImage("assets/images/ghost.png.png");
+  exampleSound = loadSound("assets/sounds/bark.wav");
 }
 
 // setup()
@@ -67,7 +70,6 @@ function preload(){
 // Sets up the basic elements of the game
 function setup() {
   createCanvas(500, 500);
-
   noStroke();
 
   // We're using simple functions to separate code out
@@ -234,6 +236,7 @@ function checkEating() {
 
       //player gets slower as he eats
       playerMaxSpeed - 5;
+      exampleSound.play();
     }
   }
 }
