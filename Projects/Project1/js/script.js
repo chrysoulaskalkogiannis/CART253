@@ -15,7 +15,7 @@ random movement, screen wrap.
 
 ******************************************************/
 let ghostImage;
-
+let mansionImage;
 let ghostEaten;
 
 
@@ -62,6 +62,7 @@ let preyEaten = 0;
 
 function preload(){
   ghostImage = loadImage("assets/images/ghost.png.png");
+  mansionImage = loadImage("assets/images/mansion.png");
   ghostEaten = loadSound("assets/sounds/why.wav");
 }
 
@@ -105,7 +106,9 @@ function setupPlayer() {
 // displays the two agents.
 // When the game is over, shows the game over screen.
 function draw() {
-  background(100, 100, 200);
+
+  //image(mansionImage,500,500);
+  background(mansionImage);
 
   if (!gameOver) {
     handleInput();
