@@ -105,13 +105,6 @@ function setupPlayer() {
 function draw() {
   background(100, 100, 200);
 
-  textFont("Helvetica");
-textSize(20);
-textAlign(CENTER,CENTER);
-noStroke();
-fill(0);
-text(playerHealth, width / 7, height / 7);
-
   if (!gameOver) {
     handleInput();
 
