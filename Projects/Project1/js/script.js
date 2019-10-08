@@ -1,5 +1,5 @@
 "use strict";
-
+//https://freesound.org/people/Alivvie/sounds/451281/
 /******************************************************
 
 Game - Chaser
@@ -16,7 +16,7 @@ random movement, screen wrap.
 ******************************************************/
 let ghostImage;
 
-let exampleSound;
+let ghostEaten;
 
 
 // Track whether the game is over
@@ -62,7 +62,7 @@ let preyEaten = 0;
 
 function preload(){
   ghostImage = loadImage("assets/images/ghost.png.png");
-  exampleSound = loadSound("assets/sounds/bark.wav");
+  ghostEaten = loadSound("assets/sounds/why.wav");
 }
 
 // setup()
@@ -236,7 +236,7 @@ function checkEating() {
 
       //player gets slower as he eats
       playerMaxSpeed - 5;
-      exampleSound.play();
+      ghostEaten.play();
     }
   }
 }
