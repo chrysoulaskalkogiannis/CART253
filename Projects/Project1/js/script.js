@@ -14,9 +14,15 @@ Includes: Physics-based movement, keyboard controls, health/stamina,
 random movement, screen wrap.
 
 ******************************************************/
+
+//load images
 let ghostImage;
 let mansionImage;
+let catImage;
+
+//load sounds
 let ghostEaten;
+let mainLevel;
 
 
 // Track whether the game is over
@@ -30,11 +36,12 @@ let playerVX = 0;
 let playerVY = 0;
 let playerMaxSpeed = 2;
 let playerSprintSpeed = 5;
+
 // Player health
 let playerHealth;
 let playerMaxHealth = 255;
 // Player fill color
-let playerFill = 50;
+let playerFill = 80;
 
 // Prey position, size, velocity
 let preyX;
@@ -61,9 +68,15 @@ let preyEaten = 0;
 
 
 function preload(){
+
+  //load images
   ghostImage = loadImage("assets/images/ghost.png.png");
   mansionImage = loadImage("assets/images/mansion.png");
-  ghostEaten = loadSound("assets/sounds/why.wav");
+  catImage = loadImage("assets/images/kittyCat.png")
+
+  //load sounds
+  ghostEaten = loadSound("assets/sounds/whyV2.wav");
+  mainLevel = loadSound("assets/sounds/mainSound.wav")
 }
 
 // setup()
@@ -76,6 +89,9 @@ function setup() {
   // We're using simple functions to separate code out
   setupPrey();
   setupPlayer();
+
+  mainLevel.setVolume(0.1);
+  mainLevel.loop();
 }
 
 // setupPrey()
@@ -285,9 +301,9 @@ function movePrey() {
 //
 // Draw the prey as an ellipse with alpha based on health
 function drawPrey() {
-  fill(preyFill, preyHealth);
+//
   //ellipse(preyX, preyY, preyRadius * 2);
-  tint(255, preyHealth);
+  tint(preyFill, preyHealth);
   image(ghostImage, preyX, preyY, preyImageX, preyImageY);
 }
 
@@ -295,14 +311,17 @@ function drawPrey() {
 //
 // Draw the player as an ellipse with alpha value based on health
 function drawPlayer() {
-  fill(playerFill, playerHealth);
-  ellipse(playerX, playerY, playerRadius * 2);
+  push()
+  tint(playerFill, playerHealth);
+  image(catImage, playerX, playerY, playerRadius * 2, playerRadius * 2);
+  pop()
 }
 
 // showGameOver()
 //
 // Display text about the game being over!
 function showGameOver() {
+  background(59, 35, 130);
   // Set up the font
   textSize(32);
   textAlign(CENTER, CENTER);
