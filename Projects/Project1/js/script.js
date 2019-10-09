@@ -12,6 +12,7 @@ The player is a cat that can see ghosts and must eat as many ghosts as he can
 to stop himself from becoming one too.  Cat can sprint but looses health faster
 as he sprints and gets fatter and slower as he eats ghosts.
 
+HOLD "SHIFT" to sprint
 
 
 A "simple" game of cat and mouse. The player is a circle and can move with keys,
@@ -87,7 +88,7 @@ let eatHealth = 10;
 let preyEaten = 0;
 
 
-function preload(){
+function preload() {
 
   //load images
   ghostImage = loadImage("assets/images/ghost.png.png");
@@ -158,8 +159,7 @@ function draw() {
 
     drawPrey();
     drawPlayer();
-  }
-  else {
+  } else {
     showGameOver();
   }
 }
@@ -171,30 +171,25 @@ function handleInput() {
   // Check for horizontal movement
   if (keyIsDown(LEFT_ARROW)) {
     playerVX = -playerMaxSpeed;
-  }
-  else if (keyIsDown(RIGHT_ARROW)) {
+  } else if (keyIsDown(RIGHT_ARROW)) {
     playerVX = playerMaxSpeed;
-  }
-  else {
+  } else {
     playerVX = 0;
   }
 
   // Check for vertical movement
   if (keyIsDown(UP_ARROW)) {
     playerVY = -playerMaxSpeed;
-  }
-  else if (keyIsDown(DOWN_ARROW)) {
+  } else if (keyIsDown(DOWN_ARROW)) {
     playerVY = playerMaxSpeed;
-  }
-  else {
+  } else {
     playerVY = 0;
   }
   // check for sprinting and lowers health faster as player sprints
-  if (keyIsDown(SHIFT)){
-    playerMaxSpeed =+ playerSprintSpeed;
-      playerHealth = playerHealth - 1;
-  }
-  else {
+  if (keyIsDown(SHIFT)) {
+    playerMaxSpeed = +playerSprintSpeed;
+    playerHealth = playerHealth - 1;
+  } else {
     playerMaxSpeed = 2;
   }
 }
@@ -212,8 +207,7 @@ function movePlayer() {
   if (playerX < 0) {
     // Off the left side, so add the width to reset to the right
     playerX = playerX + width;
-  }
-  else if (playerX > width) {
+  } else if (playerX > width) {
     // Off the right side, so subtract the width to reset to the left
     playerX = playerX - width;
   }
@@ -221,8 +215,7 @@ function movePlayer() {
   if (playerY < 0) {
     // Off the top, so add the height to reset to the bottom
     playerY = playerY + height;
-  }
-  else if (playerY > height) {
+  } else if (playerY > height) {
     // Off the bottom, so subtract the height to reset to the top
     playerY = playerY - height;
   }
@@ -289,10 +282,10 @@ function movePrey() {
   // Change the prey's velocity at noise intervals
 
 
-    preyVX = map(noise(preyTX), 0, 1, -preyMaxSpeed, preyMaxSpeed);
-    preyVY = map(noise(preyTY), 0, 1, -preyMaxSpeed, preyMaxSpeed);
-    preyTX += .01;
-    preyTY += .01;
+  preyVX = map(noise(preyTX), 0, 1, -preyMaxSpeed, preyMaxSpeed);
+  preyVY = map(noise(preyTY), 0, 1, -preyMaxSpeed, preyMaxSpeed);
+  preyTX += .01;
+  preyTY += .01;
 
   // Update prey position based on velocity
   preyX = preyX + preyVX;
@@ -301,15 +294,13 @@ function movePrey() {
   // Screen wrapping
   if (preyX < 0) {
     preyX = preyX + width;
-  }
-  else if (preyX > width) {
+  } else if (preyX > width) {
     preyX = preyX - width;
   }
 
   if (preyY < 0) {
     preyY = preyY + height;
-  }
-  else if (preyY > height) {
+  } else if (preyY > height) {
     preyY = preyY - height;
   }
 }
@@ -318,7 +309,7 @@ function movePrey() {
 //
 // Draw the prey as an ellipse with alpha based on health
 function drawPrey() {
-//
+  //
   //ellipse(preyX, preyY, preyRadius * 2);
   tint(preyFill, preyHealth);
   image(ghostImage, preyX, preyY, preyImageX, preyImageY);
