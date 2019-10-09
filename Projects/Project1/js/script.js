@@ -1,9 +1,18 @@
 "use strict";
-//https://freesound.org/people/Alivvie/sounds/451281/
 /******************************************************
 
 Game - Chaser
 Pippin Barr
+
+Game - Cats See Ghosts
+Chrysoula Skalkogiannis
+
+
+The player is a cat that can see ghosts and must eat as many ghosts as he can
+to stop himself from becoming one too.  Cat can sprint but looses health faster
+as he sprints and gets fatter and slower as he eats ghosts.
+
+
 
 A "simple" game of cat and mouse. The player is a circle and can move with keys,
 if they overlap the (randomly moving) prey they "eat it" by sucking out its life
@@ -12,6 +21,16 @@ eating to stay alive.
 
 Includes: Physics-based movement, keyboard controls, health/stamina,
 random movement, screen wrap.
+
+
+CREDITS
+
+Ghost eaten sound effect from freesound.org
+https://freesound.org/people/Alivvie/sounds/451281/
+
+Main level music created with Magix Music Maker
+
+Art created by Chrysoula Skalkogiannis with Krita
 
 ******************************************************/
 
@@ -40,6 +59,7 @@ let playerSprintSpeed = 5;
 // Player health
 let playerHealth;
 let playerMaxHealth = 255;
+
 // Player fill color
 let playerFill = 80;
 
@@ -90,7 +110,8 @@ function setup() {
   setupPrey();
   setupPlayer();
 
-  mainLevel.setVolume(0.1);
+  //set main level music
+  mainLevel.setVolume(0.05);
   mainLevel.loop();
 }
 
@@ -168,7 +189,7 @@ function handleInput() {
   else {
     playerVY = 0;
   }
-
+  // check for sprinting and lowers health faster as player sprints
   if (keyIsDown(SHIFT)){
     playerMaxSpeed =+ playerSprintSpeed;
       playerHealth = playerHealth - 1;
@@ -255,6 +276,7 @@ function checkEating() {
 
       //player gets slower as he eats
       playerMaxSpeed - 5;
+      //sound effect on preyEaten
       ghostEaten.play();
     }
   }
@@ -264,14 +286,9 @@ function checkEating() {
 //
 // Moves the prey based on random velocity changes
 function movePrey() {
-  // Change the prey's velocity at random intervals
-  // random() will be < 0.05 5% of the time, so the prey
-  // will change direction on 5% of frames
-    // Set velocity based on random values to get a new direction
-    // and speed of movement
-    //
-    // Use map() to convert from the 0-1 range of the random() function
-    // to the appropriate range of velocities for the prey
+  // Change the prey's velocity at noise intervals
+
+
     preyVX = map(noise(preyTX), 0, 1, -preyMaxSpeed, preyMaxSpeed);
     preyVY = map(noise(preyTY), 0, 1, -preyMaxSpeed, preyMaxSpeed);
     preyTX += .01;
