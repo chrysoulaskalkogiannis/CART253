@@ -166,6 +166,18 @@ function scoreDisplay(){
               bgColorG = 0;
             }
 
+            if (ball.x < 0 && rightScore >= 10){
+            bgColorR = 252;
+            bgColorG = 3;
+            bgColorB = 136;
+}
+
+else if (ball.x > width && leftScore >= 10) {
+  bgColorR = 3;
+  bgColorG = 136;
+  bgColorB = 252;
+
+}
 
       resetBall();
       //return true;
