@@ -16,7 +16,9 @@ let rightScore = 0;
 let leftScore = 0;
 
 // Game colors (using hexadecimal)
-let bgColor = 0;
+let bgColorR = 0;
+let bgColorG = 0;
+let bgColorB = 0;
 let fgColor = 255;
 
 // BALL
@@ -87,7 +89,7 @@ function setup() {
   setupPaddles();
   resetBall();
 
-  
+
 }
 
 // setupPaddles()
@@ -109,7 +111,7 @@ function setupPaddles() {
 // See how tidy it looks?!
 function draw() {
   // Fill the background
-  background(bgColor);
+  background(bgColorR,bgColorG,bgColorB);
   scoreDisplay();
 
 function scoreDisplay(){
@@ -152,10 +154,16 @@ function scoreDisplay(){
 
             if (ball.x < 0){
               rightScore = rightScore + 1;
+              bgColorR = 255;
+              bgColorB = 0;
+              bgColorG = 0;
             }
 
             else if (ball.x > width) {
               leftScore = leftScore + 1;
+              bgColorB = 255;
+              bgColorR = 0;
+              bgColorG = 0;
             }
 
 
