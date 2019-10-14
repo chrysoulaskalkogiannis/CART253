@@ -12,6 +12,9 @@
 // Whether the game has started
 let playing = false;
 
+let rightScore = 0;
+let leftScore = 0;
+
 // Game colors (using hexadecimal)
 let bgColor = 0;
 let fgColor = 255;
@@ -83,6 +86,8 @@ function setup() {
 
   setupPaddles();
   resetBall();
+
+  
 }
 
 // setupPaddles()
@@ -105,6 +110,27 @@ function setupPaddles() {
 function draw() {
   // Fill the background
   background(bgColor);
+  scoreDisplay();
+
+function scoreDisplay(){
+//left score count
+  push();
+    textAlign(RIGHT,TOP);
+   textSize(60);
+   noStroke();
+   fill(255);
+   text(leftScore,100,0);
+   pop();
+
+   //right score count
+     push();
+       textAlign(LEFT,TOP);
+      textSize(60);
+      noStroke();
+      fill(255);
+      text(rightScore,540,0);
+      pop();
+}
 
   if (playing) {
     // If the game is in play, we handle input and move the elements around
@@ -123,7 +149,20 @@ function draw() {
     // inside a conditional!)
     if (ballIsOutOfBounds()) {
       // If it went off either side, reset it
+
+            if (ball.x < 0){
+              rightScore = rightScore + 1;
+            }
+
+            else if (ball.x > width) {
+              leftScore = leftScore + 1;
+            }
+
+
       resetBall();
+      //return true;
+
+
       // This is where we would likely count points, depending on which side
       // the ball went off...
     }
