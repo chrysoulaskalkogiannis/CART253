@@ -157,11 +157,16 @@ function draw() {
         bgColorR = 255;
         bgColorB = 0;
         bgColorG = 0;
+        ball.vx = ball.vx;
+        ball.speed = -ball.speed;
+
       } else if (ball.x > width) {
         leftScore = leftScore + 1;
         bgColorB = 255;
         bgColorR = 0;
         bgColorG = 0;
+        ball.vx = ball.vx;
+        ball.speed = ball.speed;
       }
 
       if (ball.x < 0 && rightScore >= 10) {
@@ -243,6 +248,7 @@ function ballIsOutOfBounds() {
     return false;
   }
 }
+
 
 // checkBallWallCollision()
 //
