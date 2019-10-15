@@ -9,6 +9,8 @@
 // Up and down keys control the right hand paddle, W and S keys control
 // the left hand paddle
 
+let ghostImage;
+
 // Whether the game has started
 let playing = false;
 
@@ -28,7 +30,7 @@ let fgColor = 255;
 let ball = {
   x: 0,
   y: 0,
-  size: 20,
+  size: 30,
   vx: 0,
   vy: 0,
   speed: 5
@@ -71,6 +73,8 @@ let beepSFX;
 //
 // Loads the beep audio for the sound of bouncing
 function preload() {
+  ghostImage = loadImage("assets/images/ghost.png");
+
   beepSFX = new Audio("assets/sounds/beep.wav");
 }
 
@@ -311,7 +315,7 @@ function displayPaddle(paddle) {
 // Draws the ball on screen as a square
 function displayBall() {
   // Draw the ball
-  rect(ball.x, ball.y, ball.size, ball.size);
+  image (ghostImage,ball.x, ball.y, ball.size, ball.size);
 }
 
 // resetBall()
