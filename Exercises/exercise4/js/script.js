@@ -111,28 +111,28 @@ function setupPaddles() {
 // See how tidy it looks?!
 function draw() {
   // Fill the background
-  background(bgColorR,bgColorG,bgColorB);
+  background(bgColorR, bgColorG, bgColorB);
   scoreDisplay();
 
-function scoreDisplay(){
-//left score count
-  push();
-    textAlign(RIGHT,TOP);
-   textSize(60);
-   noStroke();
-   fill(255);
-   text(leftScore,100,0);
-   pop();
+  function scoreDisplay() {
+    //left score count
+    push();
+    textAlign(RIGHT, TOP);
+    textSize(60);
+    noStroke();
+    fill(255);
+    text(leftScore, 100, 0);
+    pop();
 
-   //right score count
-     push();
-       textAlign(LEFT,TOP);
-      textSize(60);
-      noStroke();
-      fill(255);
-      text(rightScore,540,0);
-      pop();
-}
+    //right score count
+    push();
+    textAlign(LEFT, TOP);
+    textSize(60);
+    noStroke();
+    fill(255);
+    text(rightScore, 540, 0);
+    pop();
+  }
 
   if (playing) {
     // If the game is in play, we handle input and move the elements around
@@ -152,32 +152,28 @@ function scoreDisplay(){
     if (ballIsOutOfBounds()) {
       // If it went off either side, reset it
 
-            if (ball.x < 0){
-              rightScore = rightScore + 1;
-              bgColorR = 255;
-              bgColorB = 0;
-              bgColorG = 0;
-            }
+      if (ball.x < 0) {
+        rightScore = rightScore + 1;
+        bgColorR = 255;
+        bgColorB = 0;
+        bgColorG = 0;
+      } else if (ball.x > width) {
+        leftScore = leftScore + 1;
+        bgColorB = 255;
+        bgColorR = 0;
+        bgColorG = 0;
+      }
 
-            else if (ball.x > width) {
-              leftScore = leftScore + 1;
-              bgColorB = 255;
-              bgColorR = 0;
-              bgColorG = 0;
-            }
+      if (ball.x < 0 && rightScore >= 10) {
+        bgColorR = 252;
+        bgColorG = 3;
+        bgColorB = 136;
+      } else if (ball.x > width && leftScore >= 10) {
+        bgColorR = 3;
+        bgColorG = 136;
+        bgColorB = 252;
 
-            if (ball.x < 0 && rightScore >= 10){
-            bgColorR = 252;
-            bgColorG = 3;
-            bgColorB = 136;
-}
-
-else if (ball.x > width && leftScore >= 10) {
-  bgColorR = 3;
-  bgColorG = 136;
-  bgColorB = 252;
-
-}
+      }
 
       resetBall();
       //return true;
@@ -186,8 +182,7 @@ else if (ball.x > width && leftScore >= 10) {
       // This is where we would likely count points, depending on which side
       // the ball went off...
     }
-  }
-  else {
+  } else {
     // Otherwise we display the message to start the game
     displayStartMessage();
   }
@@ -213,8 +208,7 @@ function handleInput(paddle) {
   else if (keyIsDown(paddle.downKey)) {
     // Move down
     paddle.vy = paddle.speed;
-  }
-  else {
+  } else {
     // Otherwise stop moving
     paddle.vy = 0;
   }
@@ -245,8 +239,7 @@ function ballIsOutOfBounds() {
   // Check for ball going off the sides
   if (ball.x < 0 || ball.x > width) {
     return true;
-  }
-  else {
+  } else {
     return false;
   }
 }
