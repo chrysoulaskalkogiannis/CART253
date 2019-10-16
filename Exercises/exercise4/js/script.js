@@ -1,7 +1,7 @@
 "use strict";
 
 // Pong
-// by Pippin Barr
+// by Chrysoula Skalkogiannis
 //
 // A "simple" implementation of Pong with no scoring system
 // just the ability to play the game with the keyboard.
@@ -118,27 +118,7 @@ function setupPaddles() {
 function draw() {
   // Fill the background
   background(bgColorR, bgColorG, bgColorB);
-  scoreDisplay();
 
-  function scoreDisplay() {
-    //left score count
-    push();
-    textAlign(RIGHT, TOP);
-    textSize(60);
-    noStroke();
-    fill(255);
-    text(leftScore, 100, 0);
-    pop();
-
-    //right score count
-    push();
-    textAlign(LEFT, TOP);
-    textSize(60);
-    noStroke();
-    fill(255);
-    text(rightScore, 540, 0);
-    pop();
-  }
 
   if (playing) {
     // If the game is in play, we handle input and move the elements around
