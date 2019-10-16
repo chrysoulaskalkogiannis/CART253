@@ -11,6 +11,8 @@
 
 let ghostImage;
 
+let mainLevel;
+
 // Whether the game has started
 let playing = false;
 
@@ -75,7 +77,9 @@ let beepSFX;
 function preload() {
   ghostImage = loadImage("assets/images/ghost.png");
 
-  beepSFX = new Audio("assets/sounds/beep.wav");
+
+  mainLevel = loadSound("assets/sounds/MainLevel.wav");
+  beepSFX = loadSound("assets/sounds/beep.wav");
 }
 
 // setup()
@@ -92,8 +96,6 @@ function setup() {
 
   setupPaddles();
   resetBall();
-
-
 }
 
 // setupPaddles()
@@ -315,7 +317,7 @@ function displayPaddle(paddle) {
 // Draws the ball on screen as a square
 function displayBall() {
   // Draw the ball
-  image (ghostImage,ball.x, ball.y, ball.size, ball.size);
+  image(ghostImage, ball.x, ball.y, ball.size, ball.size);
 }
 
 // resetBall()
@@ -346,4 +348,7 @@ function displayStartMessage() {
 // Which will help us be allowed to play audio in the browser
 function mousePressed() {
   playing = true;
+
+  mainLevel.setVolume(0.05);
+  mainLevel.loop();
 }
