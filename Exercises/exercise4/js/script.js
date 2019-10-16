@@ -3,19 +3,25 @@
 // Pong
 // by Chrysoula Skalkogiannis
 //
+// Ghost image created in Krita and main level
+// soundtrack created in Magix Music Maker
+//
 // A "simple" implementation of Pong with no scoring system
 // just the ability to play the game with the keyboard.
 //
-// Up and down keys control the right hand paddle, W and S keys control
-// the left hand paddle
 
+
+// Ghost image
 let ghostImage;
 
+// Main level soundtrack
 let mainLevel;
 
 // Whether the game has started
 let playing = false;
 
+// Up and down keys control the right hand paddle, W and S keys control
+// the left hand paddle
 let rightScore = 0;
 let leftScore = 0;
 
@@ -73,11 +79,9 @@ let beepSFX;
 
 // preload()
 //
-// Loads the beep audio for the sound of bouncing
+// Loads the beep audio for the sound of bouncing, main level soundtrack and ghost image
 function preload() {
   ghostImage = loadImage("assets/images/ghost.png");
-
-
   mainLevel = loadSound("assets/sounds/MainLevel.wav");
   beepSFX = loadSound("assets/sounds/beep.wav");
 }
@@ -138,6 +142,8 @@ function draw() {
     if (ballIsOutOfBounds()) {
       // If it went off either side, reset it
 
+
+      // add points and change direction depending on who scored
       if (ball.x < 0) {
         rightScore = rightScore + 1;
         bgColorR = 255;
@@ -155,10 +161,12 @@ function draw() {
         ball.speed = ball.speed;
       }
 
+      //change colors depending on who scored if either player scored 10 or higher
       if (ball.x < 0 && rightScore >= 10) {
         bgColorR = 252;
         bgColorG = 3;
         bgColorB = 136;
+
       } else if (ball.x > width && leftScore >= 10) {
         bgColorR = 3;
         bgColorG = 136;
@@ -169,9 +177,6 @@ function draw() {
       resetBall();
       //return true;
 
-
-      // This is where we would likely count points, depending on which side
-      // the ball went off...
     }
   } else {
     // Otherwise we display the message to start the game
@@ -296,7 +301,7 @@ function displayPaddle(paddle) {
 //
 // Draws the ball on screen as a square
 function displayBall() {
-  // Draw the ball
+  // Draw the ghost
   image(ghostImage, ball.x, ball.y, ball.size, ball.size);
 }
 
