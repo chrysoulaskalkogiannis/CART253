@@ -31,6 +31,11 @@ class Predator {
     this.downKey = DOWN_ARROW;
     this.leftKey = LEFT_ARROW;
     this.rightKey = RIGHT_ARROW;
+
+    this.upKey2 = 87;
+    this.downKey2 = 83;
+    this.leftKey2 = 65;
+    this.rightKey2 = 67;
   }
 
   // handleInput
@@ -53,6 +58,31 @@ class Predator {
       this.vy = -this.speed;
     }
     else if (keyIsDown(this.downKey)) {
+      this.vy = this.speed;
+    }
+    else {
+      this.vy = 0;
+    }
+  }
+
+
+// input for second player
+  handleSecondInput() {
+
+    if (keyIsDown(this.leftKey2)) {
+      this.vx = -this.speed;
+    }
+    else if (keyIsDown(this.rightKey2)) {
+      this.vx = this.speed;
+    }
+    else {
+      this.vx = 0;
+    }
+    // Vertical movement
+    if (keyIsDown(this.upKey2)) {
+      this.vy = -this.speed;
+    }
+    else if (keyIsDown(this.downKey2)) {
       this.vy = this.speed;
     }
     else {
