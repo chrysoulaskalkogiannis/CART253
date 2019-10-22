@@ -197,7 +197,7 @@ else{
     textSize(50);
     textAlign(CENTER,CENTER);
     noStroke();
-    fill(255,0,0);
+    fill(255,255,255);
     text((this.score),this.x,this.y);
     pop();
   }
@@ -208,14 +208,15 @@ else{
     noStroke();
     fill(this.fillColor);
     this.radius = this.health;
-    ellipse(this.x, this.y, this.radius * 2);
+    rectMode(CENTER);
+    rect(this.x, this.y, this.radius * 2, this.radius * 2);
     pop();
 
     textFont("Helvetica");
     textSize(50);
     textAlign(CENTER,CENTER);
     noStroke();
-    fill(255,255,0);
+    fill(255,255,255);
     text((this.score),this.x, this.y);
     pop();
   }
