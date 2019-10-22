@@ -18,6 +18,8 @@ class Predator {
     this.vx = 0;
     this.vy = 0;
     this.speed = speed;
+    this.normalSpeed = speed;
+    this.sprint = 10;
 
     this.score = 0;
 
@@ -35,11 +37,18 @@ class Predator {
     this.downKey = DOWN_ARROW;
     this.leftKey = LEFT_ARROW;
     this.rightKey = RIGHT_ARROW;
+
+// numpad 0 for sprint
+    this.sprintKey = 96;
 // Input properties for player 2
     this.upKey2 = 87;
     this.downKey2 = 83;
     this.leftKey2 = 65;
     this.rightKey2 = 68;
+// SHIFT key for sprint
+    this.sprintKey2 = SHIFT;
+
+
   }
 
   // handleInput
@@ -67,6 +76,13 @@ class Predator {
     else {
       this.vy = 0;
     }
+if (keyIsDown (this.sprintKey)){
+  this.speed = +this.sprint;
+}
+else{
+  this.speed = this.normalSpeed;
+}
+
   }
 
 
@@ -91,6 +107,12 @@ class Predator {
     }
     else {
       this.vy = 0;
+    }
+    if (keyIsDown (this.sprintKey2)){
+      this.speed = +this.sprint;
+    }
+    else{
+      this.speed = this.normalSpeed;
     }
   }
 
@@ -180,6 +202,7 @@ class Predator {
     pop();
   }
 
+  //Display for player 2 predator
   displayPlayer2(){
     push();
     noStroke();
