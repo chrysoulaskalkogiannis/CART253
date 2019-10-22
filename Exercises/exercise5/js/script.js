@@ -40,7 +40,6 @@ function draw() {
   lion.handleSecondInput();
 
 
-
   // Move all the "animals"
   tiger.move();
   lion.move();
@@ -59,7 +58,7 @@ function draw() {
 
   // Display all the "animals"
   tiger.display();
-  lion.display();
+  lion.displayPlayer2();
   antelope.display();
   zebra.display();
   bee.display();

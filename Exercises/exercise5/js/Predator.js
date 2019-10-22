@@ -18,6 +18,10 @@ class Predator {
     this.vx = 0;
     this.vy = 0;
     this.speed = speed;
+
+    this.score = 0;
+
+
     // Health properties
     this.maxHealth = radius;
     this.health = this.maxHealth; // Must be AFTER defining this.maxHealth
@@ -31,11 +35,11 @@ class Predator {
     this.downKey = DOWN_ARROW;
     this.leftKey = LEFT_ARROW;
     this.rightKey = RIGHT_ARROW;
-
+// Input properties for player 2
     this.upKey2 = 87;
     this.downKey2 = 83;
     this.leftKey2 = 65;
-    this.rightKey2 = 67;
+    this.rightKey2 = 68;
   }
 
   // handleInput
@@ -89,6 +93,8 @@ class Predator {
       this.vy = 0;
     }
   }
+
+
 
   // move
   //
@@ -145,9 +151,12 @@ class Predator {
       // Check if the prey died and reset it if so
       if (prey.health < 0) {
         prey.reset();
+        this.score = this.score + 1;
       }
     }
   }
+
+
 
   // display
   //
@@ -159,6 +168,32 @@ class Predator {
     fill(this.fillColor);
     this.radius = this.health;
     ellipse(this.x, this.y, this.radius * 2);
+    pop();
+
+    push();
+    textFont("Helvetica");
+    textSize(50);
+    textAlign(CENTER,CENTER);
+    noStroke();
+    fill(255,0,0);
+    text((this.score),50,50);
+    pop();
+  }
+
+  displayPlayer2(){
+    push();
+    noStroke();
+    fill(this.fillColor);
+    this.radius = this.health;
+    ellipse(this.x, this.y, this.radius * 2);
+    pop();
+
+    textFont("Helvetica");
+    textSize(50);
+    textAlign(CENTER,CENTER);
+    noStroke();
+    fill(255,255,0);
+    text((this.score),100,50);
     pop();
   }
 }
