@@ -198,7 +198,7 @@ else{
     textAlign(CENTER,CENTER);
     noStroke();
     fill(255,0,0);
-    text((this.score),50,50);
+    text((this.score),this.x,this.y);
     pop();
   }
 
@@ -216,7 +216,7 @@ else{
     textAlign(CENTER,CENTER);
     noStroke();
     fill(255,255,0);
-    text((this.score),100,50);
+    text((this.score),this.x, this.y);
     pop();
   }
 }
