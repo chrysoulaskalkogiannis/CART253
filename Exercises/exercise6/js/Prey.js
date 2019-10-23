@@ -8,7 +8,7 @@
 // ~10 ERRORS IN HERE
 /////////////////////////
 
-class Prey {  /////// Fixed class spelling 
+class Prey {  /////// Fixed class spelling
 
   // constructor
   //
@@ -49,7 +49,7 @@ class Prey {  /////// Fixed class spelling
     this.ty += 0.01;
     // Handle wrapping
     this.handleWarping();
-
+}  /////// added missing }
 
     // handleWrapping
     //
