@@ -15,7 +15,7 @@
 let tiger;
 
 // The three prey
-let antelope; ///// fixed antelope spelling 
+let antelope; ///// fixed antelope spelling
 let zebra;
 let bee;
 
@@ -23,7 +23,7 @@ let bee;
 //
 // Sets up a canvas
 // Creates objects for the predator and three prey
-functionsetup() {
+functionSetup() {  /////// Capitalized Setup in functionSetup
   createCanvas(windowWidth, windowHeight);
   tiger = new Predator(100, , 100, 5, color(200, 200, 0), 40);
   antelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
