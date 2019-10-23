@@ -36,7 +36,7 @@ functionSetup() {  /////// Capitalized Setup in functionSetup
 // Handles input, movement, eating, and displaying for the system's objects
 function draw() {
   // Clear the background to black
-  background(0);  ////// Fixed background spelling 
+  background(0);  ////// Fixed background spelling
 
   // Handle input for the tiger
 
@@ -44,6 +44,7 @@ function draw() {
   tiger.move();
   antelope.move();
   zebra.move();
+  bee.move();  /////// Added bee.move();
 
   // Handle the tiger eating any of the prey
   tiger.handleEating(antelope);
