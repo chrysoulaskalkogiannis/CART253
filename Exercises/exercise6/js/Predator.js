@@ -118,8 +118,7 @@ class Predator {
       prey.health -= this.healthGainPerEat;
       // Check if the prey died and reset it if so
       if (prey.health < 0) {
-        reset(); //////// Fixed reset spelling
-        ///////Removed prey from reset
+        prey.reset(); //////// Fixed reset spelling
       }
     }
   }
