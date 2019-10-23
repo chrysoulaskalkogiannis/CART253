@@ -55,7 +55,7 @@ function draw() {
 
   // Display all the "animals"
   tiger.display();
-  antelop.display();
+  antelope.display(); //////// fixed antelope spelling
   zebra.display();  /////// Fixed display spelling
   bee.display();   /////// fixed bee in bee.display();
 }
