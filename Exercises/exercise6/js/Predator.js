@@ -77,7 +77,7 @@ class Predator {
     this.health = this.health - this.healthLossPerMove;
     this.health = constrain(this.health, 0, this.maxHealth);
     // Handle wrapping
-    handleWrapping(); /////// removed this from handleWrapping
+    this.handleWrapping();
   }
 
   // handleWrapping

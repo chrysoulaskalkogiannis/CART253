@@ -48,7 +48,7 @@ class Prey {  /////// Fixed class spelling
     this.tx += 0.01;
     this.ty += 0.01;
     // Handle wrapping
-    this.handleWarping();
+    handleWarping();   ///////
 }  /////// added missing }
 
     // handleWrapping
