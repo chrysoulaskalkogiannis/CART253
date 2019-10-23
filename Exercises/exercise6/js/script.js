@@ -28,7 +28,7 @@ function setup()/////// Fixed space between function and setup
   createCanvas(windowWidth, windowHeight);
   tiger = new Predator(100, 100, 5, color(200, 200, 0), 40); ////// Removed double comma
   antelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
-  zebra = new Prey(100, 8, color(255, 255, 255), 60);
+  zebra = new Prey(100, 8, 10, color(255, 255, 255), 60); /////// added speed to zebra
   bee = new Prey(100, 100, 20, color(255, 255, 0), 10);
 }
 
@@ -40,7 +40,7 @@ function draw() {
   background(0);  ////// Fixed background spelling
 
   // Handle input for the tiger
-  tiger.handleInput(); //////// Added handle Input for tiger 
+  tiger.handleInput(); //////// Added handle Input for tiger
 
   // Move all the "animals"
   tiger.move();
