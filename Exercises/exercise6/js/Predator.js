@@ -77,7 +77,7 @@ class Predator {
     this.health = this.health - this.healthLossPerMove;
     this.health = constrain(this.health, 0, this.maxHealth);
     // Handle wrapping
-    this.handleWrapping();
+    handleWrapping(); /////// removed this from handleWrapping
   }
 
   // handleWrapping
@@ -133,6 +133,6 @@ class Predator {
     fill(this.fillColor);
     this.radius = this.health;
     ellipse(this.x, this.y, this.radius * 2);
-    pop(); /////// Fixed pop spelling 
+    pop(); /////// Fixed pop spelling
   }
 }
