@@ -4,6 +4,26 @@
 // controlled by the arrow keys. It can move around
 // the screen and consume Prey objects to maintain its health.
 
+
+
+/*
+  By Chrysoula Skalkogiannis
+
+- Player 1
+Up Arrow, Down Arrow, Left Arrow, Right Arrow
+Numpad 0 to sprint
+
+
+- Player 2
+  W,A,S,D
+  SHIFT to sprint
+
+*/
+
+
+
+
+
 class Predator {
 
   // constructor
@@ -21,6 +41,7 @@ class Predator {
     this.normalSpeed = speed;
     this.sprint = 10;
 
+    // Score counter
     this.score = 0;
 
 
@@ -32,20 +53,21 @@ class Predator {
     // Display properties
     this.fillColor = fillColor;
     this.radius = this.health; // Radius is defined in terms of health
-    // Input properties
+    // Input properties for player 1
     this.upKey = UP_ARROW;
     this.downKey = DOWN_ARROW;
     this.leftKey = LEFT_ARROW;
     this.rightKey = RIGHT_ARROW;
-
-// numpad 0 for sprint
+    // numpad 0 for sprint
     this.sprintKey = 96;
-// Input properties for player 2
+
+
+    // Input properties for player 2
     this.upKey2 = 87;
     this.downKey2 = 83;
     this.leftKey2 = 65;
     this.rightKey2 = 68;
-// SHIFT key for sprint
+    // SHIFT key for sprint
     this.sprintKey2 = SHIFT;
 
 
@@ -59,59 +81,53 @@ class Predator {
     // Horizontal movement
     if (keyIsDown(this.leftKey)) {
       this.vx = -this.speed;
-    }
-    else if (keyIsDown(this.rightKey)) {
+    } else if (keyIsDown(this.rightKey)) {
       this.vx = this.speed;
-    }
-    else {
+    } else {
       this.vx = 0;
     }
     // Vertical movement
     if (keyIsDown(this.upKey)) {
       this.vy = -this.speed;
-    }
-    else if (keyIsDown(this.downKey)) {
+    } else if (keyIsDown(this.downKey)) {
       this.vy = this.speed;
-    }
-    else {
+    } else {
       this.vy = 0;
     }
-if (keyIsDown (this.sprintKey)){
-  this.speed = +this.sprint;
-}
-else{
-  this.speed = this.normalSpeed;
-}
+
+    // Sprint for player 1
+    if (keyIsDown(this.sprintKey)) {
+      this.speed = +this.sprint;
+    } else {
+      this.speed = this.normalSpeed;
+    }
 
   }
 
 
-// input for second player
+  // input for second player
   handleSecondInput() {
 
     if (keyIsDown(this.leftKey2)) {
       this.vx = -this.speed;
-    }
-    else if (keyIsDown(this.rightKey2)) {
+    } else if (keyIsDown(this.rightKey2)) {
       this.vx = this.speed;
-    }
-    else {
+    } else {
       this.vx = 0;
     }
     // Vertical movement
     if (keyIsDown(this.upKey2)) {
       this.vy = -this.speed;
-    }
-    else if (keyIsDown(this.downKey2)) {
+    } else if (keyIsDown(this.downKey2)) {
       this.vy = this.speed;
-    }
-    else {
+    } else {
       this.vy = 0;
     }
-    if (keyIsDown (this.sprintKey2)){
+
+    // sprint for player 2
+    if (keyIsDown(this.sprintKey2)) {
       this.speed = +this.sprint;
-    }
-    else{
+    } else {
       this.speed = this.normalSpeed;
     }
   }
@@ -142,15 +158,13 @@ else{
     // Off the left or right
     if (this.x < 0) {
       this.x += width;
-    }
-    else if (this.x > width) {
+    } else if (this.x > width) {
       this.x -= width;
     }
     // Off the top or bottom
     if (this.y < 0) {
       this.y += height;
-    }
-    else if (this.y > height) {
+    } else if (this.y > height) {
       this.y -= height;
     }
   }
@@ -195,15 +209,15 @@ else{
     push();
     textFont("Helvetica");
     textSize(50);
-    textAlign(CENTER,CENTER);
+    textAlign(CENTER, CENTER);
     noStroke();
-    fill(255,255,255);
-    text((this.score),this.x,this.y);
+    fill(255, 255, 255);
+    text((this.score), this.x, this.y);
     pop();
   }
 
   //Display for player 2 predator
-  displayPlayer2(){
+  displayPlayer2() {
     push();
     noStroke();
     fill(this.fillColor);
@@ -214,10 +228,10 @@ else{
 
     textFont("Helvetica");
     textSize(50);
-    textAlign(CENTER,CENTER);
+    textAlign(CENTER, CENTER);
     noStroke();
-    fill(255,255,255);
-    text((this.score),this.x, this.y);
+    fill(255, 255, 255);
+    text((this.score), this.x, this.y);
     pop();
   }
 }
