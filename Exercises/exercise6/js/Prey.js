@@ -21,7 +21,7 @@ class Prey {  /////// Fixed class spelling
     // Velocity and speed
     this.vx = 0;
     this.vy = 0;
-    this.speed = speed; /////// fixed speed spelling 
+    this.speed = speed; /////// fixed speed spelling
     // Time properties for noise() function
     this.tx = random(0, 100); // To make x and y noise different
     this.ty = random(0, 100); // we use random starting values     /////// Added an x number to random
@@ -68,7 +68,7 @@ class Prey {  /////// Fixed class spelling
         this.y += height;
       }
       else if (this.y > height) {
-        this.y -= hight;
+        this.y -= height; /////// Fixed height spelling
       }
     }
 
