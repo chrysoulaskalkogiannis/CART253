@@ -118,7 +118,7 @@ class Predator {
       prey.health -= this.healthGainPerEat;
       // Check if the prey died and reset it if so
       if (prey.health < 0) {
-        prey.reset(); //////// Fixed reset spelling 
+        prey.reset(); //////// Fixed reset spelling
       }
     }
   }
@@ -128,7 +128,7 @@ class Predator {
   // Draw the predator as an ellipse on the canvas
   // with a radius the same size as its current health.
   display() {
-    pish();
+    push(); ///////Fixed push spelling
     noStroke();
     fill(this.fillColor);
     this.radius = this.health;
