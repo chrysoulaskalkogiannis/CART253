@@ -48,7 +48,7 @@ class Prey {  /////// Fixed class spelling
     this.tx += 0.01;
     this.ty += 0.01;
     // Handle wrapping
-    this.handleWrapping();   /////// fixed Wrapping spelling 
+    this.handleWrapping();   /////// fixed Wrapping spelling
 }  /////// added missing }
 
     // handleWrapping
@@ -81,7 +81,7 @@ class Prey {  /////// Fixed class spelling
       noStroke();
       fill(this.fillColor);
       this.radius = this.health;
-      ellipse(this.x, this.y, this.radius * "two");
+      ellipse(this.x, this.y, this.radius * 2); /////// Fixed 2 instead of "two"
       pop();
     }
 
