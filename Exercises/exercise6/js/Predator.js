@@ -31,7 +31,7 @@ class Predator {
     this.fillColor = fillColor;
     this.radius = this.health; // Radius is defined in terms of health  ///////fixed radius spelling
     // Input properties
-    this.appKey = UP_ARROW;
+    this.upKey = UP_ARROW; /////// Fixed upKey spelling
     this.downKey = DOWN_ARROW;
     this.leftKey = LEFT_ARROW;
     this.rightKey = RIGHT_ARROW;
