@@ -40,6 +40,7 @@ function draw() {
   background(0);  ////// Fixed background spelling
 
   // Handle input for the tiger
+  tiger.handleInput(); //////// Added handle Input for tiger 
 
   // Move all the "animals"
   tiger.move();
