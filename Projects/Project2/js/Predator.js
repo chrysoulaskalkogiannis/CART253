@@ -136,8 +136,8 @@ class Predator {
     background(0);
     textAlign(CENTER,TOP);
     textSize (50);
-    text("TITLE",windowWidth/2, 100);
-    text("LOSE",windowWidth/2,windowHeight/2);
+    text("YOU STARVED TO DEATH",windowWidth/2, 100);
+    text("Refresh to try again",windowWidth/2,windowHeight/2);
 }
 
   // display
