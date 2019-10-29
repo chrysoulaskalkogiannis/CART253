@@ -13,6 +13,8 @@ let antelope;
 let zebra;
 let bee;
 
+let gameStart = false;
+
 // setup()
 //
 // Sets up a canvas
@@ -29,6 +31,11 @@ function setup() {
 //
 // Handles input, movement, eating, and displaying for the system's objects
 function draw() {
+
+if (gameStart === false){
+titleScreen();
+}
+else {
   // Clear the background to black
   background(0);
 
@@ -51,4 +58,21 @@ function draw() {
   antelope.display();
   zebra.display();
   bee.display();
+}
+}
+
+function titleScreen(){
+background(0)
+
+fill(255);
+  textAlign(CENTER,TOP);
+  textSize (50);
+  text("TITLE",windowWidth/2, 100);
+  text("Click to Start Game",windowWidth/2,windowHeight/2);
+
+}
+function mousePressed(){
+  if (gameStart === false){
+    gameStart = true;
+  }
 }
