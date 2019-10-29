@@ -58,7 +58,10 @@ else {
   antelope.display();
   zebra.display();
   bee.display();
+
+  tiger.handleDeath();
 }
+
 }
 
 function titleScreen(){
@@ -71,6 +74,13 @@ fill(255);
   text("Click to Start Game",windowWidth/2,windowHeight/2);
 
 }
+/*function endScreen(){
+  textAlign(CENTER,TOP);
+  textSize (50);
+  text("TITLE",windowWidth/2, 100);
+  text("Click to Start Game",windowWidth/2,windowHeight/2);
+
+}*/
 function mousePressed(){
   if (gameStart === false){
     gameStart = true;

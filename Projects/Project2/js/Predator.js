@@ -31,6 +31,8 @@ class Predator {
     this.downKey = DOWN_ARROW;
     this.leftKey = LEFT_ARROW;
     this.rightKey = RIGHT_ARROW;
+
+    this.death = false;
   }
 
   // handleInput
@@ -118,6 +120,25 @@ class Predator {
       }
     }
   }
+
+  handleDeath(){
+    if (this.health === 0){
+    this.death = true
+
+  }
+
+  if(this.death === true){
+  this.endScreen();
+}
+}
+
+  endScreen(){
+    background(0);
+    textAlign(CENTER,TOP);
+    textSize (50);
+    text("TITLE",windowWidth/2, 100);
+    text("LOSE",windowWidth/2,windowHeight/2);
+}
 
   // display
   //
