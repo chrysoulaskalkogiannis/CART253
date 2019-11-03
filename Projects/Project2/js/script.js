@@ -13,6 +13,8 @@ let antelope;
 let zebra;
 let bee;
 
+let frank;
+
 let gameStart = false;
 
 // setup()
@@ -21,10 +23,13 @@ let gameStart = false;
 // Creates objects for the predator and three prey
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  tiger = new Predator(100, 100, 5, color(200, 200, 0), 40);
+  tiger = new Predator(100, 100, 10, color(200, 200, 0), 80);
+
   antelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
   zebra = new Prey(100, 100, 8, color(255, 255, 255), 60);
   bee = new Prey(100, 100, 20, color(255, 255, 0), 10);
+
+  frank = new Mosquito(windowWidth/2,windowHeight/2, color(255, 0, 0),200, 10);
 }
 
 // draw()
@@ -53,11 +58,20 @@ else {
   tiger.handleEating(zebra);
   tiger.handleEating(bee);
 
+  frank.handleEating(antelope);
+  frank.handleEating(zebra);
+  frank.handleEating(bee);
+  frank.handleEating(tiger);
+
   // Display all the "animals"
+frank.display();
+
   tiger.display();
   antelope.display();
   zebra.display();
   bee.display();
+
+
 
   tiger.handleDeath();
 }
@@ -74,13 +88,7 @@ fill(255);
   text("Click to Start Game",windowWidth/2,windowHeight/2);
 
 }
-/*function endScreen(){
-  textAlign(CENTER,TOP);
-  textSize (50);
-  text("TITLE",windowWidth/2, 100);
-  text("Click to Start Game",windowWidth/2,windowHeight/2);
 
-}*/
 function mousePressed(){
   if (gameStart === false){
     gameStart = true;

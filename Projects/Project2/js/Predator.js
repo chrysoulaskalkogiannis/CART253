@@ -18,6 +18,8 @@ class Predator {
     this.vx = 0;
     this.vy = 0;
     this.speed = speed;
+    this.slowSpeed = 1
+    this.normalSpeed = speed;
     // Health properties
     this.maxHealth = radius;
     this.health = this.maxHealth; // Must be AFTER defining this.maxHealth
@@ -133,7 +135,7 @@ class Predator {
 }
 
   endScreen(){
-    background(0);
+  //  background(0);
     textAlign(CENTER,TOP);
     textSize (50);
     text("YOU STARVED TO DEATH",windowWidth/2, 100);
