@@ -23,11 +23,11 @@ let gameStart = false;
 // Creates objects for the predator and three prey
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  tiger = new Predator(100, 100, 10, 10, color(200, 200, 0), 80,3);
+  tiger = new Predator(100, 100, 10, color(200, 200, 0), 80,3);
 
-  antelope = new Prey(100, 100, 10, color(255, 100, 10), 50);
-  zebra = new Prey(100, 100, 8, color(255, 255, 255), 60);
-  bee = new Prey(100, 100, 20, color(255, 255, 0), 10);
+  antelope = new Prey(100, 100, 10, color(255, 100, 10), 50,2);
+  zebra = new Prey(100, 100, 8, color(255, 255, 255), 60,2);
+  bee = new Prey(100, 100, 20, color(255, 255, 0), 10,2);
 
   frank = new Mosquito(windowWidth/2,windowHeight/2, color(255, 0, 0),100, 2);
 }
@@ -58,10 +58,10 @@ else {
   tiger.handleEating(zebra);
   tiger.handleEating(bee);
 
-  frank.handleEating(antelope);
-  frank.handleEating(zebra);
-  frank.handleEating(bee);
-  frank.handleEating(tiger);
+  frank.handleSpeed(antelope);
+  frank.handleSpeed(zebra);
+  frank.handleSpeed(bee);
+  frank.handleSpeed(tiger);
 
   // Display all the "animals"
 frank.display();

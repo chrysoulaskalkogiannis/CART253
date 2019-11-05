@@ -10,7 +10,7 @@ class Prey {
   //
   // Sets the initial values for the Predator's properties
   // Either sets default values or uses the arguments provided
-  constructor(x, y, speed, fillColor, radius) {
+  constructor(x, y, speed, fillColor, radius, slowSpeed) {
     // Position
     this.x = x;
     this.y = y;
@@ -18,6 +18,8 @@ class Prey {
     this.vx = 0;
     this.vy = 0;
     this.speed = speed;
+    this.slowSpeed = slowSpeed;
+    this.normalSpeed = speed;
     // Time properties for noise() function
     this.tx = random(0, 1000); // To make x and y noise different
     this.ty = random(0, 1000); // we use random starting values
@@ -80,6 +82,8 @@ class Prey {
     ellipse(this.x, this.y, this.radius * 2);
     pop();
   }
+
+  
 
   // reset
   //

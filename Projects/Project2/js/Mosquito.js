@@ -20,32 +20,18 @@ class Mosquito {
 
 }
 
-/*  handleEating(prey) {
-    // Calculate distance from this predator to the prey
-    let d = dist(this.x, this.y, prey.x, prey.y);
-    // Check if the distance is less than their two radii (an overlap)
-    if (d < this.radius + prey.radius) {
-      // Decrease prey health by the same amount
-      prey.health -= this.healthLoss;
-      // Check if the prey died and reset it if so
-    if (prey.health < 0) {
-      prey.reset();
-      }
-    }
-  } */
-
-  handleEating(predator) {
-    // Calculate distance from this predator to the prey
-    let d = dist(this.x, this.y, predator.x, predator.y);
-    // Check if the distance is less than their two radii (an overlap)
-    if (d < predator.radius + this.radius) {
-      // Decrease prey health by the same amount
-      predator.speed = predator.slowSpeed;
-    }
-    if (d > predator.radius + this.radius)  {
-      predator.slowSpeed = predator.normalSpeed;
-    }
+handleSpeed(other) {
+  // Calculate distance from this predator to the prey
+  let d = dist(this.x, this.y, other.x, other.y);
+  // Check if the distance is less than their two radii (an overlap)
+  if (d < other.radius + this.radius) {
+    // Decrease prey health by the same amount
+    other.speed = other.slowSpeed;
   }
+else  {
+ other.speed = other.normalSpeed;
+ }
+}
 
   display() {
     push();
