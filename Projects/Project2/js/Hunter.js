@@ -6,7 +6,7 @@ class is used to eat prey and player (cannot be killed)
 
 class Hunter {
 
-  constructor(x, y, speed, fillColor, radius) {
+  constructor(x, y, speed, fillColor, radius, healthLoss) {
     // Position
     this.x = x;
     this.y = y;
@@ -17,12 +17,12 @@ class Hunter {
     // Time properties for noise() function
     this.tx = random(0, 100); // To make x and y noise different
     this.ty = random(0, 100); // we use random starting values
-    // Health properties
-    this.maxHealth = radius;
-    this.health = this.maxHealth; // Must be AFTER defining this.maxHealth
+
     // Display properties
     this.fillColor = fillColor;
-    this.radius = this.health;
+    this.radius = radius;
+
+    this.healthLoss = healthLoss
   }
 
   move() {
@@ -56,11 +56,26 @@ class Hunter {
     }
   }
 
+  handleEating(prey) {
+    // Calculate distance from this predator to the prey
+    let d = dist(this.x, this.y, prey.x, prey.y);
+    // Check if the distance is less than their two radii (an overlap)
+    if (d < this.radius + prey.radius) {
+      // Increase predator health and constrain it to its possible range
+
+      // Decrease prey health by the same amount
+      prey.health -= this.healthLoss;
+      // Check if the prey died and reset it if so
+      //if (prey.health < 0) {
+      //  prey.reset();
+      //}
+    }
+  }
+
   display() {
     push();
     noStroke();
     fill(this.fillColor);
-    this.radius = this.health;
     ellipse(this.x, this.y, this.radius * 2);
     pop();
   }
