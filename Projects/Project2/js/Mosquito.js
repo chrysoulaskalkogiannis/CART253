@@ -28,9 +28,9 @@ class Mosquito {
       // Decrease prey health by the same amount
       prey.health -= this.healthLoss;
       // Check if the prey died and reset it if so
-     if (prey.health < 0) {
-      prey.reset();
-      }
+  //   if (prey.health < 0) {
+    //  prey.reset();
+      //}
     }
   }
 

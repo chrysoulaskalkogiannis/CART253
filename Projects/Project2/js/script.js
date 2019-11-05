@@ -29,7 +29,7 @@ function setup() {
   zebra = new Prey(100, 100, 8, color(255, 255, 255), 60);
   bee = new Prey(100, 100, 20, color(255, 255, 0), 10);
 
-  frank = new Mosquito(windowWidth/2,windowHeight/2, color(255, 0, 0),200, 10);
+  frank = new Mosquito(windowWidth/2,windowHeight/2, color(255, 0, 0),50, 2);
 }
 
 // draw()
