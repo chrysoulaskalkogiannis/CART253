@@ -10,7 +10,7 @@ class Predator {
   //
   // Sets the initial values for the Predator's properties
   // Either sets default values or uses the arguments provided
-  constructor(x, y, speed, fillColor, radius) {
+  constructor(x, y, speed, normalSpeed, fillColor, radius, slowSpeed) {
     // Position
     this.x = x;
     this.y = y;
@@ -18,8 +18,8 @@ class Predator {
     this.vx = 0;
     this.vy = 0;
     this.speed = speed;
-    this.slowSpeed = 1
-    this.normalSpeed = speed;
+    this.slowSpeed = slowSpeed;
+    this.normalSpeed = normalSpeed;
     // Health properties
     this.maxHealth = radius;
     this.health = this.maxHealth; // Must be AFTER defining this.maxHealth
