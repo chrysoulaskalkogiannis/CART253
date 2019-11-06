@@ -38,16 +38,16 @@ let mainMusic;
 
 function preload() {
 
-    ghost = loadImage("assets/images/ghost.png.png");
-   kittyCat = loadImage("assets/images/kittyCat.png");
-    clown = loadImage("assets/images/clown.png");
-    kittyCat2 = loadImage("assets/images/kittyCat2.png");
-    kittyCat3 = loadImage("assets/images/kittyCat3.png");
-    floor = loadImage("assets/images/floor.jpg");
-    bedForCat = loadImage("assets/images/catBed.png");
-    mouse = loadImage("assets/images/mouse.png");
+  ghost = loadImage("assets/images/ghost.png.png");
+  kittyCat = loadImage("assets/images/kittyCat.png");
+  clown = loadImage("assets/images/clown.png");
+  kittyCat2 = loadImage("assets/images/kittyCat2.png");
+  kittyCat3 = loadImage("assets/images/kittyCat3.png");
+  floor = loadImage("assets/images/floor.jpg");
+  bedForCat = loadImage("assets/images/catBed.png");
+  mouse = loadImage("assets/images/mouse.png");
 
-    mainMusic = loadSound("assets/sounds/calmingMusic.wav");
+  mainMusic = loadSound("assets/sounds/calmingMusic.wav");
 
 }
 
@@ -62,7 +62,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   mainMusic.setVolume(0.2);
-    mainMusic.loop();
+  mainMusic.loop();
 
   tiger = new Predator(100, 100, 7, color(200, 200, 0), 80, 3);
 
@@ -98,7 +98,7 @@ function draw() {
     titleScreen();
   } else {
     // Clear the background to black
-    background (floor);
+    background(floor);
 
     // Handle input for the tiger
     tiger.handleInput();
@@ -124,11 +124,11 @@ function draw() {
 
     // Display all the "animals"
 
-bed.display();
+    bed.display();
 
-        ladyCat.display();
-        mrKitty.display();
-        puffy.display();
+    ladyCat.display();
+    mrKitty.display();
+    puffy.display();
 
 
 

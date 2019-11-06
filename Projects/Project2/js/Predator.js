@@ -46,21 +46,17 @@ class Predator {
     // Horizontal movement
     if (keyIsDown(this.leftKey)) {
       this.vx = -this.speed;
-    }
-    else if (keyIsDown(this.rightKey)) {
+    } else if (keyIsDown(this.rightKey)) {
       this.vx = this.speed;
-    }
-    else {
+    } else {
       this.vx = 0;
     }
     // Vertical movement
     if (keyIsDown(this.upKey)) {
       this.vy = -this.speed;
-    }
-    else if (keyIsDown(this.downKey)) {
+    } else if (keyIsDown(this.downKey)) {
       this.vy = this.speed;
-    }
-    else {
+    } else {
       this.vy = 0;
     }
   }
@@ -89,15 +85,13 @@ class Predator {
     // Off the left or right
     if (this.x < 0) {
       this.x += width;
-    }
-    else if (this.x > width) {
+    } else if (this.x > width) {
       this.x -= width;
     }
     // Off the top or bottom
     if (this.y < 0) {
       this.y += height;
-    }
-    else if (this.y > height) {
+    } else if (this.y > height) {
       this.y -= height;
     }
   }
@@ -120,29 +114,29 @@ class Predator {
       // Check if the prey died and reset it if so
       if (prey.health < 0) {
         prey.reset();
-         this.score = this.score + 1;
+        this.score = this.score + 1;
       }
     }
   }
 
-  handleDeath(){
-    if (this.health === 0){
-    this.death = true
+  handleDeath() {
+    if (this.health === 0) {
+      this.death = true
 
+    }
+
+    if (this.death === true) {
+      this.endScreen();
+    }
   }
 
-  if(this.death === true){
-  this.endScreen();
-}
-}
-
-  endScreen(){
+  endScreen() {
     background(floor);
-    textAlign(CENTER,TOP);
-    textSize (50);
-    text("YOU STARVED TO DEATH",windowWidth/2, 100);
-    text("Refresh to try again",windowWidth/2,windowHeight/2);
-}
+    textAlign(CENTER, TOP);
+    textSize(50);
+    text("YOU STARVED TO DEATH", windowWidth / 2, 100);
+    text("Refresh to try again", windowWidth / 2, windowHeight / 2);
+  }
 
   // display
   //
@@ -157,12 +151,12 @@ class Predator {
     pop();
 
     textFont("Helvetica");
-      textSize(50);
-      textAlign(CENTER, CENTER);
-      noStroke();
-      fill(255, 255, 255);
-      text((this.score), this.x, this.y);
-      pop();
+    textSize(50);
+    textAlign(CENTER, CENTER);
+    noStroke();
+    fill(255, 255, 255);
+    text((this.score), this.x, this.y);
+    pop();
 
   }
 }
