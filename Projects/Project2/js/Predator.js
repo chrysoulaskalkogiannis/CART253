@@ -34,6 +34,7 @@ class Predator {
     this.leftKey = LEFT_ARROW;
     this.rightKey = RIGHT_ARROW;
 
+    this.score = 0;
     this.death = false;
   }
 
@@ -119,6 +120,7 @@ class Predator {
       // Check if the prey died and reset it if so
       if (prey.health < 0) {
         prey.reset();
+         this.score = this.score + 1;
       }
     }
   }
@@ -153,5 +155,14 @@ class Predator {
     this.radius = this.health;
     ellipse(this.x, this.y, this.radius * 2);
     pop();
+
+    textFont("Helvetica");
+      textSize(50);
+      textAlign(CENTER, CENTER);
+      noStroke();
+      fill(255, 255, 255);
+      text((this.score), this.x, this.y);
+      pop();
+
   }
 }
