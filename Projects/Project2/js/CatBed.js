@@ -4,18 +4,18 @@ class is used to slow down player
 
 */
 
-class Mosquito {
+class CatBed {
 
-  constructor(x, y, fillColor, radius, healthLoss) {
+  constructor(x, y, image, radius, healthLoss) {
     // Position
     this.x = x;
     this.y = y;
     // Velocity and speed
 
     // Display properties
-    this.fillColor = fillColor;
+  //  this.fillColor = fillColor;
     this.radius = radius;
-
+    this.image = image;
     this.healthLoss = healthLoss;
 
 }
@@ -37,8 +37,8 @@ else  {
   display() {
     push();
     noStroke();
-    fill(this.fillColor);
-    ellipse(this.x, this.y, this.radius * 2);
+  imageMode(CENTER);
+    image(this.image, this.x, this.y, this.radius*2, this.radius*2);
     pop();
 
 }

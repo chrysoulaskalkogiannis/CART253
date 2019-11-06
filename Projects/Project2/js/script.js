@@ -9,11 +9,11 @@
 let tiger;
 
 // The three prey
-let antelope;
-let zebra;
-let bee;
+let ladyCat;
+let mrKitty;
+let puffy;
 
-let frank;
+let bed;
 
 let evilGuy;
 
@@ -23,12 +23,15 @@ let numPrey = 3;
 let prey = []
 
 
-
+//Images
 let ghost;
 let kittyCat;
 let kittyCat2;
 let kittyCat3;
 let clown;
+let bedForCat;
+
+let floor;
 
 function preload() {
 
@@ -37,7 +40,8 @@ function preload() {
     clown = loadImage("assets/images/clown.png");
     kittyCat2 = loadImage("assets/images/kittyCat2.png");
     kittyCat3 = loadImage("assets/images/kittyCat3.png");
-
+    floor = loadImage("assets/images/floor.jpg");
+    bedForCat = loadImage("assets/images/catBed.png");
 
 }
 
@@ -50,22 +54,22 @@ function preload() {
 // Creates objects for the predator and three prey
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  tiger = new Predator(100, 100, 10, color(200, 200, 0), 80, 3);
+  tiger = new Predator(100, 100, 7, color(200, 200, 0), 80, 3);
 
-  evilGuy = new Hunter(500, 500, 20, color(0, 0, 200), 100, 5);
+  evilGuy = new Distractor(500, 500, 20, color(0, 0, 200), 100, 20);
 
-  antelope = new Prey(100, 100, 10, kittyCat, 50, 2);
-  zebra = new Prey(100, 100, 8, kittyCat2, 60, 2);
-  bee = new Prey(100, 100, 20, kittyCat3, 10, 2);
+  ladyCat = new Prey(100, 100, 10, kittyCat, 50, 2);
+  mrKitty = new Prey(100, 100, 8, kittyCat2, 60, 2);
+  puffy = new Prey(100, 100, 20, kittyCat3, 10, 2);
 
-  frank = new Mosquito(windowWidth / 2, windowHeight / 2, color(255, 0, 0), 150, 2);
+  bed = new CatBed(windowWidth / 2, windowHeight / 2, bedForCat, 250, 2);
 
 
   for (let i = 0; i < numPrey; i++) {
     let preyX = random(0, width);
     let preyY = random(0, height);
     let preySpeed = random(2, 20);
-    let preyRadius = random(25, 75);
+    let preyRadius = random(10, 40);
     let preySlowSpeed = 1;
     prey.push(new Prey(preyX, preyY, preySpeed, kittyCat, preyRadius, preySlowSpeed));
     prey.push(new Prey(preyX, preyY, preySpeed, kittyCat2, preyRadius, preySlowSpeed));
@@ -84,7 +88,7 @@ function draw() {
     titleScreen();
   } else {
     // Clear the background to black
-    background(0);
+    background (floor);
 
     // Handle input for the tiger
     tiger.handleInput();
@@ -94,27 +98,27 @@ function draw() {
 
     evilGuy.move();
 
-    antelope.move();
-    zebra.move();
-    bee.move();
+    ladyCat.move();
+    mrKitty.move();
+    puffy.move();
 
     // Handle the tiger eating any of the prey
-    tiger.handleEating(antelope);
-    tiger.handleEating(zebra);
-    tiger.handleEating(bee);
+    tiger.handleEating(ladyCat);
+    tiger.handleEating(mrKitty);
+    tiger.handleEating(puffy);
 
-    frank.handleSpeed(antelope);
-    frank.handleSpeed(zebra);
-    frank.handleSpeed(bee);
-    frank.handleSpeed(tiger);
+    bed.handleSpeed(ladyCat);
+    bed.handleSpeed(mrKitty);
+    bed.handleSpeed(puffy);
+    bed.handleSpeed(tiger);
 
     // Display all the "animals"
 
-frank.display();
+bed.display();
 
-        antelope.display();
-        zebra.display();
-        bee.display();
+        ladyCat.display();
+        mrKitty.display();
+        puffy.display();
 
 
 

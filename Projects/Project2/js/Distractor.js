@@ -4,7 +4,7 @@ class is used to eat prey and player (cannot be killed)
 
 */
 
-class Hunter {
+class Distractor {
 
   constructor(x, y, speed, fillColor, radius, healthLoss) {
     // Position
