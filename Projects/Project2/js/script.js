@@ -26,6 +26,8 @@ let prey = []
 
 let ghost;
 let kittyCat;
+let kittyCat2;
+let kittyCat3;
 let clown;
 
 function preload() {
@@ -33,6 +35,9 @@ function preload() {
     ghost = loadImage("assets/images/ghost.png.png");
    kittyCat = loadImage("assets/images/kittyCat.png");
     clown = loadImage("assets/images/clown.png");
+    kittyCat2 = loadImage("assets/images/kittyCat2.png");
+    kittyCat3 = loadImage("assets/images/kittyCat3.png");
+
 
 }
 
@@ -49,9 +54,9 @@ function setup() {
 
   evilGuy = new Hunter(500, 500, 20, color(0, 0, 200), 100, 5);
 
-  antelope = new Prey(100, 100, 10, clown, 50, 2);
-  zebra = new Prey(100, 100, 8, kittyCat, 60, 2);
-  bee = new Prey(100, 100, 20, ghost, 10, 2);
+  antelope = new Prey(100, 100, 10, kittyCat, 50, 2);
+  zebra = new Prey(100, 100, 8, kittyCat2, 60, 2);
+  bee = new Prey(100, 100, 20, kittyCat3, 10, 2);
 
   frank = new Mosquito(windowWidth / 2, windowHeight / 2, color(255, 0, 0), 150, 2);
 
@@ -60,11 +65,11 @@ function setup() {
     let preyX = random(0, width);
     let preyY = random(0, height);
     let preySpeed = random(2, 20);
-    let preyRadius = random(10, 60);
-    let preySlowSpeed = random(1, 5);
-    prey.push(new Prey(preyX, preyY, preySpeed, clown, preyRadius, preySlowSpeed));
+    let preyRadius = random(25, 75);
+    let preySlowSpeed = 1;
     prey.push(new Prey(preyX, preyY, preySpeed, kittyCat, preyRadius, preySlowSpeed));
-    prey.push(new Prey(preyX, preyY, preySpeed, ghost, preyRadius, preySlowSpeed));
+    prey.push(new Prey(preyX, preyY, preySpeed, kittyCat2, preyRadius, preySlowSpeed));
+    prey.push(new Prey(preyX, preyY, preySpeed, kittyCat3, preyRadius, preySlowSpeed));
 
   }
 
@@ -105,12 +110,14 @@ function draw() {
 
     // Display all the "animals"
 
+frank.display();
+
         antelope.display();
         zebra.display();
         bee.display();
 
 
-    frank.display();
+
 
     tiger.display();
 
