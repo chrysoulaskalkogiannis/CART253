@@ -30,6 +30,7 @@ let kittyCat2;
 let kittyCat3;
 let clown;
 let bedForCat;
+let mouse
 
 let floor;
 
@@ -44,6 +45,7 @@ function preload() {
     kittyCat3 = loadImage("assets/images/kittyCat3.png");
     floor = loadImage("assets/images/floor.jpg");
     bedForCat = loadImage("assets/images/catBed.png");
+    mouse = loadImage("assets/images/mouse.png");
 
     mainMusic = loadSound("assets/sounds/calmingMusic.wav");
 
@@ -64,7 +66,7 @@ function setup() {
 
   tiger = new Predator(100, 100, 7, color(200, 200, 0), 80, 3);
 
-  evilGuy = new Distractor(500, 500, 20, color(0, 0, 200), 100, 20);
+  evilGuy = new Distractor(500, 500, 20, mouse, 100, 20);
 
   ladyCat = new Prey(100, 100, 10, kittyCat, 50, 2);
   mrKitty = new Prey(100, 100, 8, kittyCat2, 60, 2);

@@ -6,7 +6,7 @@ class is used to eat prey and player (cannot be killed)
 
 class Distractor {
 
-  constructor(x, y, speed, fillColor, radius, healthLoss) {
+  constructor(x, y, speed, image, radius, healthLoss) {
     // Position
     this.x = x;
     this.y = y;
@@ -19,9 +19,8 @@ class Distractor {
     this.ty = random(0, 100); // we use random starting values
 
     // Display properties
-    this.fillColor = fillColor;
     this.radius = radius;
-
+    this.image = image;
     this.healthLoss = healthLoss
   }
 
@@ -56,27 +55,12 @@ class Distractor {
     }
   }
 
-  handleEating(prey) {
-    // Calculate distance from this predator to the prey
-    let d = dist(this.x, this.y, prey.x, prey.y);
-    // Check if the distance is less than their two radii (an overlap)
-    if (d < this.radius + prey.radius) {
-      // Increase predator health and constrain it to its possible range
-
-      // Decrease prey health by the same amount
-      prey.health -= this.healthLoss;
-      // Check if the prey died and reset it if so
-      //if (prey.health < 0) {
-      //  prey.reset();
-      //}
-    }
-  }
 
   display() {
     push();
     noStroke();
-    fill(this.fillColor);
-    ellipse(this.x, this.y, this.radius * 2);
+    imageMode(CENTER);
+    image(this.image, this.x, this.y, this.radius*2, this.radius*2);
     pop();
   }
 
