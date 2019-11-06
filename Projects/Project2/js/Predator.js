@@ -135,7 +135,7 @@ class Predator {
 }
 
   endScreen(){
-    background(0);
+    background(floor);
     textAlign(CENTER,TOP);
     textSize (50);
     text("YOU STARVED TO DEATH",windowWidth/2, 100);

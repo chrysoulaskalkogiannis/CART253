@@ -33,6 +33,8 @@ let bedForCat;
 
 let floor;
 
+let mainMusic;
+
 function preload() {
 
     ghost = loadImage("assets/images/ghost.png.png");
@@ -42,6 +44,8 @@ function preload() {
     kittyCat3 = loadImage("assets/images/kittyCat3.png");
     floor = loadImage("assets/images/floor.jpg");
     bedForCat = loadImage("assets/images/catBed.png");
+
+    mainMusic = loadSound("assets/sounds/calmingMusic.wav");
 
 }
 
@@ -54,6 +58,10 @@ function preload() {
 // Creates objects for the predator and three prey
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
+  mainMusic.setVolume(0.2);
+    mainMusic.loop();
+
   tiger = new Predator(100, 100, 7, color(200, 200, 0), 80, 3);
 
   evilGuy = new Distractor(500, 500, 20, color(0, 0, 200), 100, 20);
@@ -143,7 +151,7 @@ bed.display();
 }
 
 function titleScreen() {
-  background(0)
+  background(floor);
 
   fill(255);
   textAlign(CENTER, TOP);
