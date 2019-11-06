@@ -34,7 +34,9 @@ class Predator {
     this.leftKey = LEFT_ARROW;
     this.rightKey = RIGHT_ARROW;
 
+    //keep track of score
     this.score = 0;
+    //check if player is dead or not
     this.death = false;
   }
 
@@ -114,6 +116,7 @@ class Predator {
       // Check if the prey died and reset it if so
       if (prey.health < 0) {
         prey.reset();
+        //adds one point to score
         this.score = this.score + 1;
       }
     }
@@ -122,20 +125,18 @@ class Predator {
   handleDeath() {
     if (this.health === 0) {
       this.death = true
-
     }
-
     if (this.death === true) {
       this.endScreen();
     }
   }
-
+  // display the end screen when radius gets to zero
   endScreen() {
     background(floor);
     textAlign(CENTER, TOP);
     textSize(50);
-    text("YOU STARVED TO DEATH", windowWidth / 2, 100);
-    text("Refresh to try again", windowWidth / 2, windowHeight / 2);
+    text("The kitties are tired", windowWidth / 2, 100);
+    text("Refresh to play again", windowWidth / 2, windowHeight / 2);
   }
 
   // display
@@ -150,6 +151,7 @@ class Predator {
     ellipse(this.x, this.y, this.radius * 2);
     pop();
 
+    //text for the score
     textFont("Helvetica");
     textSize(50);
     textAlign(CENTER, CENTER);

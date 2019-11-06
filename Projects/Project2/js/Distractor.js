@@ -1,6 +1,6 @@
 /*
 
-class is used to eat prey and player (cannot be killed)
+class is used to distract player
 
 */
 
@@ -53,7 +53,7 @@ class Distractor {
     }
   }
 
-
+  // display of the class as a mouse
   display() {
     push();
     noStroke();
@@ -61,6 +61,4 @@ class Distractor {
     image(this.image, this.x, this.y, this.radius * 2, this.radius * 2);
     pop();
   }
-
-
 }
