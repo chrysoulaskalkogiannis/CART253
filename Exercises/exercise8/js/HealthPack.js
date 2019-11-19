@@ -1,0 +1,5 @@
+class HealthPack {
+  constructor() {
+
+  }
+}
