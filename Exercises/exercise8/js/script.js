@@ -13,9 +13,12 @@ author, and this description to match your project!
 
 let bob;
 
+let healthKit;
+
 function setup() {
-createCanvas(500,500);
-bob = new Player(100, 100, 60, 10, 100);
+createCanvas(1000,900);
+bob = new Player(100, 100, 100, 10, 100);
+healthKit = new HealthPack(200,200,50);
 }
 
 
@@ -28,5 +31,6 @@ background(0);
 
 bob.movement();
 bob.display();
+healthKit.display();
 
 }
