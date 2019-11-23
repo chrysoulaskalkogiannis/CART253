@@ -17,8 +17,6 @@ display(){
 push();
 fill(0,255,0);
 rect(this.x, this.y, this.size, this.size)
-
-
 pop();
 
 }
