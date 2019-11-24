@@ -42,26 +42,26 @@ class Player {
 
   handleCollision(){
 
-    if (this.x < 0) {
-           this.x += width;
+      if (this.x < 0 ) {
+           this.vx = +this.speed;
          }
-         else if (this.x > width) {
-           this.x -= width;
-         }
-         // Off the top or bottom
-         if (this.y < 0) {
-           this.y += height;
-         }
-         else if (this.y > height) {
-           this.y -= height;
-         }
+        else if (this.x > width - this.size) {
+          this.vx = -this.speed;
+        }
+        else if (this.y < 0 ) {
+          this.vy = +this.speed;
+        }
+        else if (this.y > height - this.size) {
+          this.vy = -this.speed;
+        }
+
 
   }
 
   display(){
     push();
     fill(255,0,0);
-    ellipse(this.x,this.y, this.size);
+    rect(this.x,this.y, this.size, this.size);
     pop();
   }
 }
