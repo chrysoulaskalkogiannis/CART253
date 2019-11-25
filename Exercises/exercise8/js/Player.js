@@ -1,7 +1,7 @@
 class Player {
 
 
-  constructor(x, y, size, speed, health) {
+  constructor(x, y, size, speed) {
     this.x = x;
     this.y = x;
 
@@ -12,7 +12,9 @@ class Player {
 
     this.speed = speed;
 
-    this.health = health;
+    this.health = 100;
+
+    this.score = 0;
   }
 
   movement(){
@@ -63,5 +65,19 @@ class Player {
     fill(255,0,0);
     rect(this.x,this.y, this.size, this.size);
     pop();
+
+    push();
+    noStroke();
+    fill(255, 255, 255);
+    textAlign(CENTER, TOP);
+    textSize(20);
+    text("Score",100, 50);
+    text(this.score, 100, 80);
+
+    text("Health",200, 50);
+    text(this.score, 200, 80);
+
+    pop();
   }
+
 }

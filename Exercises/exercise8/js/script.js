@@ -19,7 +19,7 @@ let walls;
 
 function setup() {
 createCanvas(1000, 900);
-bob = new Player(100, 100, 100, 10, 10, 100);
+bob = new Player(100, 100, 100, 10);
 healthKit = new HealthPack(200, 200, 50);
 walls = new Wall(500, 500, 100, 300);
 }
@@ -36,9 +36,11 @@ bob.movement();
 bob.handleCollision();
 bob.display();
 
+
 healthKit.display();
 
 walls.handleWall(bob);
 walls.display();
+
 
 }
