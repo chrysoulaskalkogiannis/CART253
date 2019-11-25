@@ -1,0 +1,5 @@
+class Ore {
+  constructor() {
+
+  }
+}
