@@ -75,7 +75,7 @@ class Player {
     text(this.score, 100, 80);
 
     text("Health",200, 50);
-    text(this.score, 200, 80);
+    text(this.health, 200, 80);
 
     pop();
   }
