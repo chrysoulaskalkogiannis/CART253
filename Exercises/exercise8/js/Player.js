@@ -11,11 +11,17 @@ class Player {
     this.vy = 0;
 
     this.speed = speed;
+    this.slowSpeed = speed - 7
+    this.normalSpeed = speed
 
     this.health = 100;
 
     this.score = 0;
+
+
+
   }
+
 
   movement(){
     this.x += this.vx;
@@ -73,6 +79,9 @@ class Player {
 }
 
   display(){
+
+
+
     push();
     fill(255,0,0);
     rect(this.x,this.y, this.size*2, this.size*2);
