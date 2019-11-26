@@ -58,6 +58,7 @@ bob.display();
 
 gold.display();
 healthKit.display();
+healthKit.handleRegen(bob);
 
 bob.handlePickUp(gold);
 
