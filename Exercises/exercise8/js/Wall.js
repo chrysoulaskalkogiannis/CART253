@@ -9,27 +9,6 @@ class Wall {
 }
 
 
-
-/*  handleWall(player){
-
-      if (player.x < this.sizeX) {
-           player.vx = +player.speed;
-         }
-        else if (this.x > this.sizeX) {
-          player.vx = -player.speed;
-        }
-        else if (this.y < this.siz) {
-          player.vy = +player.speed;
-        }
-        else if (this.y > this.siz) {
-          player.vy = -player.speed;
-        }
-} */
-
-
-
-
-
 handleSpeed(player) {
     // Calculate distance from this predator to the prey
     let d = dist(this.x, this.y, player.x, player.y);

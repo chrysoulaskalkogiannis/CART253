@@ -15,6 +15,7 @@ class Player {
     this.normalSpeed = speed
 
     this.health = 100;
+    this.maxHealth = 100;
 
     this.score = 0;
 

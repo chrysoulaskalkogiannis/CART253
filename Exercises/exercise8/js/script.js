@@ -49,9 +49,8 @@ if (gameStart === false) {
     // shows the main background and game
 background(0);
 
-
-
-
+walls.display();
+walls.handleSpeed(bob);
 
 bob.movement();
 bob.handleCollision();
@@ -63,12 +62,12 @@ healthKit.display();
 bob.handlePickUp(gold);
 
 //walls.handleWall(bob);
-walls.display();
-walls.handleSpeed(bob);
+
 
 badGuy.move();
 badGuy.display();
 badGuy.handlePickUp(gold);
+badGuy.handleEating(bob)
 }
 }
 function titleScreen() {

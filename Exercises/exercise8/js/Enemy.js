@@ -39,7 +39,7 @@ this.score = 0;
 
 handleWrapping() {
       // Off the left or right
-      if (this.x < 0) {  /////// Fixed x < 0
+      if (this.x < 0) {
         this.x += width;
       }
       else if (this.x > width) {
@@ -50,7 +50,7 @@ handleWrapping() {
         this.y += height;
       }
       else if (this.y > height) {
-        this.y -= height; /////// Fixed height spelling
+        this.y -= height;
       }
     }
 
@@ -64,6 +64,22 @@ handleWrapping() {
   }
 }
 
+handleEating(player) {
+    // Calculate distance from this predator to the prey
+    let d = dist(this.x, this.y, player.x, player.y);
+    // Check if the distance is less than their two radii (an overlap)
+    if (d < this.size + player.size) {
+      // Increase predator health and constrain it to its possible range
+      player.health = player.health - 1;
+
+      // Decrease prey health by the same amount
+
+      // Check if the prey died and reset it if so
+    //  if (player.health < 0) {
+    //  game over
+      }
+    }
+
     // display
     //
     // Draw the prey as an ellipse on the canvas
@@ -72,7 +88,7 @@ handleWrapping() {
       push();
       noStroke();
       fill(255,25,85);
-      rect(this.x, this.y, this.size*2, this.size*2); /////// Fixed 2 instead of "two"
+      rect(this.x, this.y, this.size*2, this.size*2);
       pop();
 
 
