@@ -70,6 +70,17 @@ badGuy.display();
 badGuy.handlePickUp(gold);
 badGuy.handleEating(bob)
 }
+
+if (bob.health <= 0 || badGuy.score >= 1000){
+gameOver();
+
+}
+
+if (bob.score >= 1000){
+win();
+
+}
+
 }
 function titleScreen() {
   background(255,0,0);
@@ -81,8 +92,33 @@ function titleScreen() {
   textSize(50);
   text("Click to start the game", width / 2, height / 2);
   text("INFO", width / 2, height / 3);
+}
+
+function gameOver() {
+  background(0);
+
+  fill(255);
+  textAlign(CENTER, TOP);
+  textSize(100);
+  text("GAME OVER", width / 2, 100);
+  textSize(50);
+  text("Refresh to play again", width / 2, height / 2);
 
 }
+
+function win() {
+  background(0);
+
+  fill(255);
+  textAlign(CENTER, TOP);
+  textSize(100);
+  text("YOU WIN", width / 2, 100);
+  textSize(50);
+  text("Refresh to play again", width / 2, height / 2);
+
+}
+
+
 // starts the game on mouse pressed
 function mousePressed() {
   if (gameStart === false) {
