@@ -12,7 +12,7 @@ class Enemy {
     this.tx = random(0, 100);
     this.ty = random(0, 100);
 
-
+this.score = 0;
 
     this.size = size;
   }
@@ -54,6 +54,16 @@ handleWrapping() {
       }
     }
 
+    handlePickUp(ore){
+
+      let d = dist(this.x, this.y, ore.x, ore.y);
+      if (d < ore.size + this.size){
+        this.score = this.score + ore.size;
+        ore.size === 0;
+        ore.reset();
+  }
+}
+
     // display
     //
     // Draw the prey as an ellipse on the canvas
@@ -61,8 +71,21 @@ handleWrapping() {
     display() {
       push();
       noStroke();
-      fill(255,25,25);
-      rect(this.x, this.y, this.size, this.size); /////// Fixed 2 instead of "two"
+      fill(255,25,85);
+      rect(this.x, this.y, this.size*2, this.size*2); /////// Fixed 2 instead of "two"
+      pop();
+
+
+      push();
+      noStroke();
+      fill(255, 255, 255);
+      textAlign(CENTER, TOP);
+      textSize(20);
+      text("Score",800, 50);
+      text(this.score, 800, 80);
+
+
+
       pop();
     }
 

@@ -23,8 +23,8 @@ let badGuy;
 
 function setup() {
 createCanvas(1000, 900);
-bob = new Player(100, 100, 100, 10);
-badGuy = new Enemy(500,100,10, 100);
+bob = new Player(100, 100, 50, 10);
+badGuy = new Enemy(500,100,10, 50);
 healthKit = new HealthPack(200, 200, 50);
 walls = new Wall(500, 500, 100, 300);
 gold = new Ore(50);
@@ -53,6 +53,7 @@ walls.display();
 
 badGuy.move();
 badGuy.display();
+badGuy.handlePickUp(gold);
 
 
 

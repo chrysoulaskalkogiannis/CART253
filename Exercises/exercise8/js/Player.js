@@ -47,13 +47,13 @@ class Player {
       if (this.x < 0 ) {
            this.vx = +this.speed;
          }
-        else if (this.x > width - this.size) {
+        else if (this.x > width - this.size*2) {
           this.vx = -this.speed;
         }
         else if (this.y < 0 ) {
           this.vy = +this.speed;
         }
-        else if (this.y > height - this.size) {
+        else if (this.y > height - this.size*2) {
           this.vy = -this.speed;
         }
   }
@@ -75,7 +75,7 @@ class Player {
   display(){
     push();
     fill(255,0,0);
-    rect(this.x,this.y, this.size, this.size);
+    rect(this.x,this.y, this.size*2, this.size*2);
     pop();
 
     push();
