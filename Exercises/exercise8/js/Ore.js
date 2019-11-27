@@ -1,35 +1,23 @@
 class Ore {
   constructor(size) {
-this.x = random(0,1000);
-this.y = random(0,850);
+    this.x = random(0, 900);
+    this.y = random(0, 825);
 
-this.size = size;
-
-
-
-}
-display(){
-  push();
-  fill(255,60,100);
-  rect(this.x,this.y, this.size*2, this.size*2);
-
-  pop();
+    this.size = size;
   }
 
-/*
-handlePickUp(player){
+  // displays the ore as a small pink rectangle
+  display() {
+    push();
+    fill(255, 60, 100);
+    rect(this.x, this.y, this.size * 2, this.size * 2);
 
-  let d = dist(player.x, player.y, this.x, this.y);
-  if (d < this.size + player.size){
-    this.reset();
-    player.score = player.score + this.size;
-}
-}
-*/
+    pop();
+  }
 
-
-reset(){
-  this.x = random(0, 1000);
-  this.y = random(0, 900);
-}
+  // resets ore to random location when called
+  reset() {
+    this.x = random(0, 1000);
+    this.y = random(0, 900);
+  }
 }

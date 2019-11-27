@@ -12,7 +12,7 @@ class Enemy {
     this.tx = random(0, 100);
     this.ty = random(0, 100);
 
-this.score = 0;
+    this.score = 0;
 
     this.size = size;
   }
@@ -21,7 +21,7 @@ this.score = 0;
   //
   // Sets velocity based on the noise() function and the Prey's speed
   // Moves based on the resulting velocity and handles wrapping
-  move() {   ///// Fixed spelling for move
+  move() {
     // Set velocity via noise()
     this.vx = map(noise(this.tx), 0, 1, -this.speed, this.speed);
     this.vy = map(noise(this.ty), 0, 1, -this.speed, this.speed);
@@ -33,86 +33,74 @@ this.score = 0;
     this.ty += 0.01;
     // Handle wrapping
     this.handleWrapping();
-}
-
-
-
-handleWrapping() {
-      // Off the left or right
-      if (this.x < 0) {
-        this.x += width;
-      }
-      else if (this.x > width) {
-        this.x -= width;
-      }
-      // Off the top or bottom
-      if (this.y < 0) {
-        this.y += height;
-      }
-      else if (this.y > height) {
-        this.y -= height;
-      }
-    }
-
-    handlePickUp(ore){
-
-      let d = dist(this.x, this.y, ore.x, ore.y);
-      if (d < ore.size + this.size){
-        this.score = this.score + ore.size;
-        ore.size === 0;
-        ore.reset();
   }
-}
 
-handleEating(player) {
+
+  // handles the screen wrapping
+  handleWrapping() {
+    // Off the left or right
+    if (this.x < 0) {
+      this.x += width;
+    } else if (this.x > width) {
+      this.x -= width;
+    }
+    // Off the top or bottom
+    if (this.y < 0) {
+      this.y += height;
+    } else if (this.y > height) {
+      this.y -= height;
+    }
+  }
+
+  // handles picking up the ores
+  handlePickUp(ore) {
+
+    let d = dist(this.x, this.y, ore.x, ore.y);
+    if (d < ore.size + this.size) {
+      this.score = this.score + ore.size;
+      ore.size === 0;
+      ore.reset();
+    }
+  }
+
+  //  handles the health loss of the player when overlapping
+  handleEating(player) {
     // Calculate distance from this predator to the prey
     let d = dist(this.x, this.y, player.x, player.y);
     // Check if the distance is less than their two radii (an overlap)
     if (d < this.size + player.size) {
-      // Increase predator health and constrain it to its possible range
+      // Decreat player health on overlap
       player.health = player.health - 1;
-
-      // Decrease prey health by the same amount
-
-      // Check if the prey died and reset it if so
-    //  if (player.health < 0) {
-    //  game over
-      }
-    }
-
-    // display
-    //
-    // Draw the prey as an ellipse on the canvas
-    // with a radius the same size as its current health.
-    display() {
-      push();
-      noStroke();
-      fill(255,25,85);
-      rect(this.x, this.y, this.size*2, this.size*2);
-      pop();
-
-
-      push();
-      noStroke();
-      fill(255, 255, 255);
-      textAlign(CENTER, TOP);
-      textSize(20);
-      text("Score",800, 50);
-      text(this.score, 800, 80);
-
-
-
-      pop();
-    }
-
-    // reset
-    //
-    // Set the position to a random location and reset health
-    // and radius back to default
-    reset() {
-      // Random position
-      this.x = random(0, width);
-      this.y = random(0, height);
-
     }
   }
+
+  // display
+  //
+  // Draw the enemy  on the canvas
+  display() {
+    push();
+    noStroke();
+    fill(255, 25, 85);
+    rect(this.x, this.y, this.size * 2, this.size * 2);
+    pop();
+
+    // draws the enemy points system
+    push();
+    noStroke();
+    fill(255, 255, 255);
+    textAlign(CENTER, TOP);
+    textSize(20);
+    text("Score", 800, 50);
+    text(this.score, 800, 80);
+    pop();
+  }
+
+  // reset
+  //
+  // Set the position to a random location
+  reset() {
+    this.x = random(0, width);
+    this.y = random(0, height);
+
+  }
+}
