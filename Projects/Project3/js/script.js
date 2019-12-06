@@ -95,7 +95,7 @@ function draw() {
 
     bob.movement();
     bob.handleCollision();
-    bob.display();
+    //bob.display();
     bob.handlePickUp(gold);
 
 
@@ -125,7 +125,8 @@ function draw() {
         for (let i = 0; i < wall.length; i++) {
           wall[i].move();
           wall[i].display();
-          //wall[i].handleSpeed(bob);
+          bob.display();
+          wall[i].handleSpeed(bob);
 
 
             }
