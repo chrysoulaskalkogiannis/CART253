@@ -37,6 +37,7 @@ let goldOre;
 let mouse;
 let goodCat;
 let badCat;
+let health;
 
 
 function preload() {
@@ -46,6 +47,7 @@ function preload() {
   mouse = loadImage("assets/images/mouse.png");
   goodCat = loadImage("assets/images/kittyCat.png");
   badCat = loadImage("assets/images/kittyCat3.png");
+  health = loadImage("assets/images/HealthPack.png");
 
 }
 
@@ -53,7 +55,7 @@ function setup() {
   createCanvas(1000, 900);
   bob = new Player(100, 100, 50, 10, goodCat);
   badGuy = new Enemy(500, 100, 10, 75, badCat);
-  healthKit = new HealthPack(200, 200, 50);
+  healthKit = new HealthPack(200, 200, 50, health);
   walls = new Wall(500, 500, 100, 10, mouse);
   gold = new Ore(100, 100, 25, goldOre);
 

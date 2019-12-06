@@ -1,10 +1,12 @@
 class HealthPack {
-  constructor(x, y, size) {
+  constructor(x, y, size, image) {
 
     this.x = x;
     this.y = x;
 
     this.size = size;
+
+    this.image = image;
   }
 
   handleRegen(player) {
@@ -33,7 +35,7 @@ class HealthPack {
 
     push();
     fill(0, 255, 0);
-    rect(this.x, this.y, this.size, this.size)
+  image(this.image, this.x, this.y, this.size, this.size)
     pop();
 
   }
