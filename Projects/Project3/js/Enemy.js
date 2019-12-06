@@ -1,6 +1,6 @@
 class Enemy {
 
-  constructor(x, y, speed, size) {
+  constructor(x, y, speed, size, image) {
 
     this.x = x;
     this.y = y;
@@ -8,6 +8,8 @@ class Enemy {
     this.vx = 0;
     this.vy = 0;
     this.speed = speed;
+
+    this.image = image;
 
     this.tx = random(0, 100);
     this.ty = random(0, 100);
@@ -81,7 +83,7 @@ class Enemy {
     push();
     noStroke();
     fill(255, 25, 85);
-    rect(this.x, this.y, this.size * 2, this.size * 2);
+    image(this.image, this.x, this.y, this.size * 2, this.size * 2);
     pop();
 
     // draws the enemy points system

@@ -1,11 +1,13 @@
 class Player {
 
 
-  constructor(x, y, size, speed) {
+  constructor(x, y, size, speed, image) {
     this.x = x;
     this.y = x;
 
     this.size = size;
+
+    this.image = image;
 
     this.vx = 0;
     this.vy = 0;
@@ -58,6 +60,8 @@ class Player {
     }
   }
 
+
+
   handleSpeed(wall) {
     // Calculate distance from this wall to the player
     let d = dist(this.x, this.y, wall.x, wall.y);
@@ -71,6 +75,8 @@ class Player {
       this.speed = this.normalSpeed;
     }
   }
+
+
 
   //handles picking up the ores and adding points.
   handlePickUp(ore) {
@@ -88,7 +94,7 @@ class Player {
 
     push();
     fill(255, 0, 0);
-    rect(this.x, this.y, this.size * 2, this.size * 2);
+    image(this.image, this.x, this.y, this.size * 2, this.size * 2);
     pop();
 
     push();

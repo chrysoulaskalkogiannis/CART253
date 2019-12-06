@@ -35,6 +35,8 @@ let wall = []
 //images
 let goldOre;
 let mouse;
+let goodCat;
+let badCat;
 
 
 function preload() {
@@ -42,14 +44,15 @@ function preload() {
 
   goldOre = loadImage("assets/images/goldOre.png");
   mouse = loadImage("assets/images/mouse.png");
-
+  goodCat = loadImage("assets/images/kittyCat.png");
+  badCat = loadImage("assets/images/kittyCat3.png");
 
 }
 
 function setup() {
   createCanvas(1000, 900);
-  bob = new Player(100, 100, 50, 10);
-  badGuy = new Enemy(500, 100, 10, 50);
+  bob = new Player(100, 100, 50, 10, goodCat);
+  badGuy = new Enemy(500, 100, 10, 50, badCat);
   healthKit = new HealthPack(200, 200, 50);
   walls = new Wall(500, 500, 100, mouse);
   gold = new Ore(100, 100, 25, goldOre);
@@ -57,8 +60,8 @@ function setup() {
 
 //array for the ore
 for (let i = 0; i < numOre; i++){
-      let oreX = random(0, width - 100);
-      let oreY = random(0, height - 100);
+      let oreX = random(0, width - 200);
+      let oreY = random(0, height - 200);
       let oreSize = random([10, 15, 20, 25]);
    ore.push(new Ore(oreX, oreY, oreSize, goldOre));
 }
@@ -66,8 +69,8 @@ for (let i = 0; i < numOre; i++){
    for (let i = 0; i < numWalls; i++){
          let wallX = random(0, width - 100);
          let wallY = random(0, height - 100);
-         let wallSize = random([100, 125, 150,200]);
-      wall.push(new Wall(wallX, wallY, wallSize, mouse));
+         let wallSize = random([100, 125, 140, 150]);
+    wall.push(new Wall(wallX, wallY, wallSize, mouse));
 
 }
 
@@ -86,16 +89,22 @@ function draw() {
     // shows the main background and game
     background(0);
 
+
+
     walls.display();
-  //  walls.handleSpeed(bob);
-    bob.handleSpeed(walls);
+
 
     bob.movement();
     bob.handleCollision();
     bob.display();
     bob.handlePickUp(gold);
 
+
+
     gold.display();
+
+    //walls.handleSpeed(bob);
+    bob.handleSpeed(walls);
 
     healthKit.display();
     healthKit.handleRegen(bob);
@@ -106,15 +115,18 @@ function draw() {
     badGuy.handleEating(bob)
 
 
+
+
 // display the ore array
     for (let i = 0; i < ore.length; i++) {
           ore[i].display();
           bob.handlePickUp(ore[i]);
-        }
 
+}
         for (let i = 0; i < wall.length; i++) {
               wall[i].display();
-              bob.handleSpeed(wall[i]);
+              //wall[i].handleSpeed(bob);
+              bob.handleSpeed(walls);
             }
 
 

@@ -22,13 +22,14 @@ class Wall {
       // back to normal speed when not overlapping
       player.speed = player.normalSpeed;
     }
-  }  */
+  }
+  */
 
   // displays the wall as an image
   display() {
     push();
     fill(0, 0, 200);
-  image(this.image, this.x, this.y, this.size, this.size)
+  image(this.image, this.x, this.y, this.size*2, this.size*2)
     pop();
 
   }
