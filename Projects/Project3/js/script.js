@@ -52,9 +52,9 @@ function preload() {
 function setup() {
   createCanvas(1000, 900);
   bob = new Player(100, 100, 50, 10, goodCat);
-  badGuy = new Enemy(500, 100, 10, 50, badCat);
+  badGuy = new Enemy(500, 100, 10, 75, badCat);
   healthKit = new HealthPack(200, 200, 50);
-  walls = new Wall(500, 500, 100, mouse);
+  walls = new Wall(500, 500, 100, 10, mouse);
   gold = new Ore(100, 100, 25, goldOre);
 
 
@@ -67,14 +67,13 @@ for (let i = 0; i < numOre; i++){
 }
 
    for (let i = 0; i < numWalls; i++){
-         let wallX = random(0, width - 100);
-         let wallY = random(0, height - 100);
-         let wallSize = random([100, 125, 140, 150]);
-    wall.push(new Wall(wallX, wallY, wallSize, mouse));
+         let wallX = random(0, width);
+         let wallY = random(0, height);
+         let wallSize = random([100, 115, 130, 145]);
+         let wallSpeed = random(10, 20);
+    wall.push(new Wall(wallX, wallY, wallSize, wallSpeed, mouse));
 
 }
-
-
 }
 
 // draw()
@@ -91,8 +90,8 @@ function draw() {
 
 
 
-    walls.display();
-
+   walls.display();
+   walls.move();
 
     bob.movement();
     bob.handleCollision();
@@ -103,8 +102,8 @@ function draw() {
 
     gold.display();
 
-    //walls.handleSpeed(bob);
-    bob.handleSpeed(walls);
+    walls.handleSpeed(bob);
+    //bob.handleSpeed(walls);
 
     healthKit.display();
     healthKit.handleRegen(bob);
@@ -124,13 +123,14 @@ function draw() {
 
 }
         for (let i = 0; i < wall.length; i++) {
-              wall[i].display();
-              //wall[i].handleSpeed(bob);
-              bob.handleSpeed(walls);
+          wall[i].move();
+          wall[i].display();
+          //wall[i].handleSpeed(bob);
+
+
             }
-
-
   }
+
 
 
   // display gameOver screen

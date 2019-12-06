@@ -10,7 +10,6 @@ class Ore {
   // displays the ore as a small pink rectangle
   display() {
     push();
-    fill(255, 60, 100);
   image(this.image, this.x, this.y, this.size * 2, this.size * 2);
     pop();
   }

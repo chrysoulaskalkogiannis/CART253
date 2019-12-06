@@ -61,7 +61,7 @@ class Player {
   }
 
 
-
+/*
   handleSpeed(wall) {
     // Calculate distance from this wall to the player
     let d = dist(this.x, this.y, wall.x, wall.y);
@@ -75,7 +75,7 @@ class Player {
       this.speed = this.normalSpeed;
     }
   }
-
+*/
 
 
   //handles picking up the ores and adding points.
@@ -93,7 +93,7 @@ class Player {
   display() {
 
     push();
-    fill(255, 0, 0);
+    
     image(this.image, this.x, this.y, this.size * 2, this.size * 2);
     pop();
 
