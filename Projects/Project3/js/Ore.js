@@ -16,7 +16,7 @@ class Ore {
 
   // resets ore to random location when called
   reset() {
-    this.x = random(0, 1000);
+    this.x = random(0, 800);
     this.y = random(0, 900);
   }
 }

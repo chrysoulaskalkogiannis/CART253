@@ -59,7 +59,7 @@ class Enemy {
 
     let d = dist(this.x, this.y, ore.x, ore.y);
     if (d < ore.size + this.size) {
-      this.score = this.score + ore.size;
+      this.score = this.score + ore.size *2;
       ore.size === 0;
       ore.reset();
     }
@@ -82,7 +82,6 @@ class Enemy {
   display() {
     push();
     noStroke();
-    fill(255, 25, 85);
     image(this.image, this.x, this.y, this.size * 2, this.size * 2);
     pop();
 

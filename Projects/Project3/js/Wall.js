@@ -67,7 +67,7 @@ class Wall {
   // displays the wall as an image
   display() {
     push();
-    
+
     image(this.image, this.x, this.y, this.size*2, this.size*2)
     pop();
 
