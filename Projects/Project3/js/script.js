@@ -29,17 +29,19 @@ let numOre = 4
 let ore = []
 
 // the array for the walls
-let numWalls = 2;
-let wallsArray = []
+let numWalls = 3;
+let wall = []
 
 //images
 let goldOre;
+let mouse;
 
 
 function preload() {
   // load images
 
   goldOre = loadImage("assets/images/goldOre.png");
+  mouse = loadImage("assets/images/mouse.png");
 
 
 }
@@ -49,25 +51,23 @@ function setup() {
   bob = new Player(100, 100, 50, 10);
   badGuy = new Enemy(500, 100, 10, 50);
   healthKit = new HealthPack(200, 200, 50);
-  walls = new Wall(500, 500, 100);
+  walls = new Wall(500, 500, 100, mouse);
   gold = new Ore(100, 100, 25, goldOre);
 
 
 //array for the ore
 for (let i = 0; i < numOre; i++){
-      let oreX = random(0, width);
-      let oreY = random(0, height);
+      let oreX = random(0, width - 100);
+      let oreY = random(0, height - 100);
       let oreSize = random([10, 15, 20, 25]);
    ore.push(new Ore(oreX, oreY, oreSize, goldOre));
 }
 
    for (let i = 0; i < numWalls; i++){
-         let wallsArrayX = random(0, width);
-         let wallsArrayY = random(0, height);
-         let wallsArraySize = random([100, 125, 150,200]);
-      wallsArray.push(new Wall(wallsArrayX, wallsArrayY, wallsArraySize));
-
-
+         let wallX = random(0, width - 100);
+         let wallY = random(0, height - 100);
+         let wallSize = random([100, 125, 150,200]);
+      wall.push(new Wall(wallX, wallY, wallSize, mouse));
 
 }
 
@@ -87,7 +87,8 @@ function draw() {
     background(0);
 
     walls.display();
-    walls.handleSpeed(bob);
+  //  walls.handleSpeed(bob);
+    bob.handleSpeed(walls);
 
     bob.movement();
     bob.handleCollision();
@@ -111,9 +112,9 @@ function draw() {
           bob.handlePickUp(ore[i]);
         }
 
-        for (let i = 0; i < wallsArray.length; i++) {
-              wallsArray[i].display();
-              wallsArray[i].handleSpeed(bob);
+        for (let i = 0; i < wall.length; i++) {
+              wall[i].display();
+              bob.handleSpeed(wall[i]);
             }
 
 

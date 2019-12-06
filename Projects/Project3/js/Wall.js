@@ -1,14 +1,15 @@
 class Wall {
-  constructor(x, y, size) {
+  constructor(x, y, size, image) {
 
     this.x = x;
     this.y = y;
 
     this.size = size;
+    this.image = image;
 
   }
 
-
+/*
   handleSpeed(player) {
     // Calculate distance from this wall to the player
     let d = dist(this.x, this.y, player.x, player.y);
@@ -21,13 +22,13 @@ class Wall {
       // back to normal speed when not overlapping
       player.speed = player.normalSpeed;
     }
-  }
+  }  */
 
-  // displays the wall as a blue square
+  // displays the wall as an image
   display() {
     push();
     fill(0, 0, 200);
-    rect(this.x, this.y, this.size, this.size)
+  image(this.image, this.x, this.y, this.size, this.size)
     pop();
 
   }

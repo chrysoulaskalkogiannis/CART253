@@ -58,6 +58,20 @@ class Player {
     }
   }
 
+  handleSpeed(wall) {
+    // Calculate distance from this wall to the player
+    let d = dist(this.x, this.y, wall.x, wall.y);
+    // Check if the distance is less than their two radii (an overlap)
+    if (d < wall.size + this.size) {
+      // slows down the player when overlapping
+      this.speed = this.slowSpeed;
+    } else {
+
+      // back to normal speed when not overlapping
+      this.speed = this.normalSpeed;
+    }
+  }
+
   //handles picking up the ores and adding points.
   handlePickUp(ore) {
 
