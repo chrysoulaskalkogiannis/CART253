@@ -67,7 +67,7 @@ function preload() {
 }
 
 function setup() {
-mainSong.play();
+mainSong.loop();
 mainSong.setVolume(0.5);
 
   createCanvas(windowWidth, windowHeight);
