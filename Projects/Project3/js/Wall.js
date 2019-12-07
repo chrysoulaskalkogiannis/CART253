@@ -25,11 +25,12 @@ class Wall {
     if (d < player.size + this.size) {
       // slows down the player when overlapping
       player.speed = player.slowSpeed;
-    } else {
+    } //else {
 
       // back to normal speed when not overlapping
-      player.speed = player.normalSpeed;
-    }
+
+    //  player.speed = player.normalSpeed;
+  //  }
   }
 
 

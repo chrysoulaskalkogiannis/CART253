@@ -129,6 +129,8 @@ function draw() {
           pop();
 }
 
+
+  bob.speed = bob.normalSpeed;
   for (let i = 0; i < foo.length; i++) {
         push();
         foo[i].display();
