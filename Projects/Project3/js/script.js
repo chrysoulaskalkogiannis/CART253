@@ -38,13 +38,17 @@ let goodCat;
 let badCat;
 let health;
 
+// sounds
+let pickUpSound;
+let enemyPickUpSound;
+let heal;
+
 //background images
 let goldMine
 
 
 function preload() {
   // load images
-
   goldOre = loadImage("assets/images/goldOre.png");
   mouse = loadImage("assets/images/mouse.png");
   goodCat = loadImage("assets/images/kittyCat.png");
@@ -52,6 +56,11 @@ function preload() {
   health = loadImage("assets/images/healthPack.png");
 
   goldMine = loadImage("assets/images/mineshaft.jpg");
+
+// load sounds
+  pickUpSound = loadSound("assets/sounds/goldPickUp.wav");
+  enemyPickUpSound = loadSound("assets/sounds/EnemyPickUp.wav");
+  heal = loadSound("assets/sounds/HealthPickUp.wav");
 
 }
 
@@ -134,8 +143,10 @@ function draw() {
   for (let i = 0; i < foo.length; i++) {
         push();
         foo[i].display();
+          bob.display();
         foo[i].handleSpeed(bob);
         foo[i].move();
+
         pop()
 }
 

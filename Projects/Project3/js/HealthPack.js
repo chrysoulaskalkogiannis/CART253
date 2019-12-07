@@ -19,6 +19,8 @@ class HealthPack {
 
       // player health is max 100
       player.health = constrain(player.health, 0, player.maxHealth);
+      heal.setVolume(0.3);
+      heal.play();
       // resets health pack after pick up
       this.reset();
     }

@@ -85,6 +85,8 @@ class Player {
     if (d < ore.size + this.size) {
       this.score = this.score + ore.size;
       ore.size === 0;
+      pickUpSound.setVolume(0.5);
+      pickUpSound.play();
       ore.reset();
     }
   }
@@ -93,7 +95,7 @@ class Player {
   display() {
 
     push();
-    
+
     image(this.image, this.x, this.y, this.size * 2, this.size * 2);
     pop();
 
