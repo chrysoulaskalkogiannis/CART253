@@ -42,6 +42,7 @@ let health;
 let pickUpSound;
 let enemyPickUpSound;
 let heal;
+let mainSong;
 
 //background images
 let goldMine
@@ -61,10 +62,14 @@ function preload() {
   pickUpSound = loadSound("assets/sounds/goldPickUp.wav");
   enemyPickUpSound = loadSound("assets/sounds/EnemyPickUp.wav");
   heal = loadSound("assets/sounds/HealthPickUp.wav");
+  mainSong = loadSound("assets/sounds/MainLevelSong.wav");
 
 }
 
 function setup() {
+mainSong.play();
+mainSong.setVolume(0.5);
+
   createCanvas(windowWidth, windowHeight);
   bob = new Player(100, 100, 50, 10, goodCat);
   badGuy = new Enemy(500, 100, 10, 100, badCat);
