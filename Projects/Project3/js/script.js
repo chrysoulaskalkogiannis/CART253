@@ -38,6 +38,9 @@ let goodCat;
 let badCat;
 let health;
 
+//background images
+let goldMine
+
 
 function preload() {
   // load images
@@ -47,6 +50,8 @@ function preload() {
   goodCat = loadImage("assets/images/kittyCat.png");
   badCat = loadImage("assets/images/kittyCat3.png");
   health = loadImage("assets/images/healthPack.png");
+
+  goldMine = loadImage("assets/images/mineshaft.jpg");
 
 }
 
@@ -87,7 +92,7 @@ function draw() {
     titleScreen();
   } else {
     // shows the main background and game
-    background(0);
+    background(goldMine);
 
 
 
@@ -149,12 +154,12 @@ function draw() {
 }
 // code for main menu
 function titleScreen() {
-  background(0);
+  background(goldMine);
 
   fill(255);
   textAlign(CENTER, TOP);
   textSize(100);
-  text("GAME", width / 2, 100);
+  text("MINING KITTY", width / 2, 100);
   textSize(25);
   text("W,A,S,D to move", width / 2, height / 2);
   text("Be the first to reach 1000 points before the enemy does", width / 2, height / 4);
@@ -163,7 +168,7 @@ function titleScreen() {
 
 // code for game over screen
 function gameOver() {
-  background(0);
+  background(goldMine);
 
   fill(255);
   textAlign(CENTER, TOP);
@@ -175,7 +180,7 @@ function gameOver() {
 }
 // code for win screen
 function win() {
-  background(0);
+  background(goldMine);
 
   fill(255);
   textAlign(CENTER, TOP);
