@@ -46,7 +46,7 @@ function preload() {
   mouse = loadImage("assets/images/mouse.png");
   goodCat = loadImage("assets/images/kittyCat.png");
   badCat = loadImage("assets/images/kittyCat3.png");
-  health = loadImage("assets/images/HealthPack.png");
+  health = loadImage("assets/images/healthPack.png");
 
 }
 
