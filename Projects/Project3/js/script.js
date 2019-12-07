@@ -25,7 +25,7 @@ let badGuy;
 let gameStart = false;
 
 // the array for the ore
-let numOre = 4
+let numOre = 14
 let ore = []
 
 let fooNum = 3
@@ -61,16 +61,16 @@ function setup() {
 
 //array for the ore
 for (let i = 0; i < numOre; i++){
-      let oreX = random(0, width - 200);
-      let oreY = random(0, height - 200);
-      let oreSize = random([10, 15, 20, 25]);
+      let oreX = random(0, width);
+      let oreY = random(0, height);
+      let oreSize = random([15, 20, 25, 30]);
    ore.push(new Ore(oreX, oreY, oreSize, goldOre));
 }
 
 for (let i = 0; i < fooNum; i++){
       let fooX = random(0, width - 200);
       let fooY = random(0, height - 200);
-      let fooSize = random([100, 150, 200, 250]);
+      let fooSize = random([100, 130, 160, 190]);
       let fooSpeed = random(5,10);
    foo.push(new Wall(fooX, fooY, fooSize, fooSpeed, mouse));
 }
@@ -120,13 +120,14 @@ function draw() {
           push();
           ore[i].display();
           bob.handlePickUp(ore[i]);
+          badGuy.handlePickUp(ore[i]);
           pop();
 }
 
   for (let i = 0; i < foo.length; i++) {
         push();
         foo[i].display();
-        foo[i].handleSpeed(bob)
+        foo[i].handleSpeed(bob);
         foo[i].move();
         pop()
 }

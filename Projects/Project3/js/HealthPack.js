@@ -26,15 +26,15 @@ class HealthPack {
 
   // reset healthKit after pick up
   reset() {
-    this.x = random(0, 1000);
-    this.y = random(0, 900);
+    this.x = random(width);
+    this.y = random(height);
   }
 
   // displays the health kit
   display() {
 
     push();
-    fill(0, 255, 0);
+
   image(this.image, this.x, this.y, this.size, this.size)
     pop();
 
