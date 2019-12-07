@@ -28,9 +28,8 @@ let gameStart = false;
 let numOre = 4
 let ore = []
 
-// the array for the walls
-let numWalls = 2;
-let wall = []
+let fooNum = 3
+let foo = [];
 
 //images
 let goldOre;
@@ -68,14 +67,14 @@ for (let i = 0; i < numOre; i++){
    ore.push(new Ore(oreX, oreY, oreSize, goldOre));
 }
 
-   for (let i = 0; i < numWalls; i++){
-         let wallX = random(0, width);
-         let wallY = random(0, height);
-         let wallSize = random([100, 115, 130, 145]);
-         let wallSpeed = random(10, 20);
-    wall.push(new Wall(wallX, wallY, wallSize, wallSpeed, mouse));
-
+for (let i = 0; i < fooNum; i++){
+      let fooX = random(0, width - 200);
+      let fooY = random(0, height - 200);
+      let fooSize = random([100, 150, 200, 250]);
+      let fooSpeed = random(5,10);
+   foo.push(new Wall(fooX, fooY, fooSize, fooSpeed, mouse));
 }
+
 }
 
 // draw()
@@ -97,7 +96,7 @@ function draw() {
 
     bob.movement();
     bob.handleCollision();
-    //bob.display();
+    bob.display();
     bob.handlePickUp(gold);
 
 
@@ -116,27 +115,23 @@ function draw() {
     badGuy.handleEating(bob)
 
 
-
-
 // display the ore array
-for (let i = 0; i < wall.length; i++) {
-  wall[i].move();
-  wall[i].display();
-  bob.display();
-  wall[i].handleSpeed(bob);
-  //wallMouse.display();
-  //wallMouse.move();
-
-    }
-
     for (let i = 0; i < ore.length; i++) {
+          push();
           ore[i].display();
           bob.handlePickUp(ore[i]);
-
+          pop();
 }
 
-  }
+  for (let i = 0; i < foo.length; i++) {
+        push();
+        foo[i].display();
+        foo[i].handleSpeed(bob)
+        foo[i].move();
+        pop()
+}
 
+}
 
 
   // display gameOver screen
