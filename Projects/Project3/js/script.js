@@ -56,7 +56,7 @@ function preload() {
   badCat = loadImage("assets/images/kittyCat3.png");
   health = loadImage("assets/images/healthPack.png");
 
-  goldMine = loadImage("assets/images/mineshaft.jpg");
+  goldMine = loadImage("assets/images/tunnel.jpg");
 
 // load sounds
   pickUpSound = loadSound("assets/sounds/goldPickUp.wav");
@@ -68,7 +68,7 @@ function preload() {
 
 function setup() {
 mainSong.loop();
-mainSong.setVolume(0.5);
+mainSong.setVolume(0.4);
 
   createCanvas(windowWidth, windowHeight);
   bob = new Player(100, 100, 50, 10, goodCat);
@@ -121,7 +121,7 @@ function draw() {
 
 
 
-    gold.display();
+
 
     wallMouse.handleSpeed(bob);
     //bob.handleSpeed(walls);
@@ -134,6 +134,7 @@ function draw() {
     badGuy.handlePickUp(gold);
     badGuy.handleEating(bob)
 badGuy.display();
+gold.display();
 
 // display the ore array
     for (let i = 0; i < ore.length; i++) {
@@ -179,10 +180,13 @@ function titleScreen() {
   textAlign(CENTER, TOP);
   textSize(100);
   text("MINING KITTY", width / 2, 100);
-  textSize(25);
-  text("W,A,S,D to move", width / 2, height / 2);
+  textSize(35);
   text("Be the first to reach 1000 points before the enemy does", width / 2, height / 4);
-  text("INFO", width / 2, height / 3);
+textSize(25);
+  text("The mice will slow you down and distract you", width / 2, height / 3);
+  text("The black cat will attack if you get too close", width / 2, height / 2.5);
+  text("If you get hurt, the health pack will heal you", width / 2, height / 2);
+  text("Use the up, down, left, right arrows to move", width / 2, height / 1.75);
 }
 
 // code for game over screen
