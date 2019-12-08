@@ -36,9 +36,8 @@ class HealthPack {
   display() {
 
     push();
-
-  image(this.image, this.x, this.y, this.size, this.size)
+    // display as a health kit
+    image(this.image, this.x, this.y, this.size, this.size)
     pop();
-
   }
 }

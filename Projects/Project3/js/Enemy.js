@@ -61,6 +61,8 @@ class Enemy {
     if (d < ore.size + this.size) {
       this.score = this.score + ore.size * 2;
       ore.size === 0;
+
+      //sound effects for pick up
       enemyPickUpSound.setVolume(0.5);
       enemyPickUpSound.play();
       ore.reset();
@@ -93,8 +95,8 @@ class Enemy {
     fill(255, 255, 255);
     textAlign(CENTER, TOP);
     textSize(50);
-    text("Enemy Score", width / 1.5, height/15);
-    text(this.score, width / 1.5, height / 7 );
+    text("Enemy Score", width / 1.5, height / 15);
+    text(this.score, width / 1.5, height / 7);
     pop();
   }
 

@@ -6,17 +6,20 @@ class Wall {
 
     this.speed = speed;
 
+
+    // wall noise movement
     this.tx = random(0, 100);
     this.ty = random(0, 100);
 
+    // wall velocity
     this.vx = 0;
     this.vy = 0;
 
     this.size = size;
+
+    //the image of the walls
     this.image = image;
-
   }
-
 
   handleSpeed(player) {
     // Calculate distance from this wall to the player
@@ -25,14 +28,8 @@ class Wall {
     if (d < player.size + this.size) {
       // slows down the player when overlapping
       player.speed = player.slowSpeed;
-    } //else {
-
-      // back to normal speed when not overlapping
-
-    //  player.speed = player.normalSpeed;
-  //  }
+    }
   }
-
 
   // handles the screen wrapping
   handleWrapping() {
@@ -49,7 +46,6 @@ class Wall {
       this.y -= height;
     }
   }
-
 
   move() {
     // Set velocity via noise()
@@ -68,8 +64,8 @@ class Wall {
   // displays the wall as an image
   display() {
     push();
-
-    image(this.image, this.x, this.y, this.size*2, this.size*2)
+    // image display
+    image(this.image, this.x, this.y, this.size * 2, this.size * 2)
     pop();
 
   }

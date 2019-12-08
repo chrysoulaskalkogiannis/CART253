@@ -9,9 +9,11 @@ class Player {
 
     this.image = image;
 
+    //velocity variables
     this.vx = 0;
     this.vy = 0;
 
+    //manage speed variables
     this.speed = speed;
     this.slowSpeed = speed - 7
     this.normalSpeed = speed
@@ -19,8 +21,8 @@ class Player {
     this.health = 100;
     this.maxHealth = 100;
 
+    //player score is set to 0
     this.score = 0;
-
   }
 
   // player input
@@ -76,7 +78,7 @@ class Player {
   display() {
 
     push();
-
+    //display as a kitty
     image(this.image, this.x, this.y, this.size * 2, this.size * 2);
     pop();
 
@@ -85,11 +87,13 @@ class Player {
     fill(255, 255, 255);
     textAlign(CENTER, TOP);
     textSize(50);
-    text("Score", width/ 3, height / 15);
-    text(this.score, width/3, height/ 7);
 
-    text("Health", width/6, height / 15);
-    text(this.health, width/6, height / 7);
+    //display score and health 
+    text("Score", width / 3, height / 15);
+    text(this.score, width / 3, height / 7);
+
+    text("Health", width / 6, height / 15);
+    text(this.health, width / 6, height / 7);
     pop();
   }
 

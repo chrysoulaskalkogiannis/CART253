@@ -2,11 +2,16 @@
 
 /*****************
 
-Title of Project
+Mining Kitty
 By; Chrysoula Skalkogiannis
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+Background of the mine from google images
+
+Gold ore pick up sound effect found for free from YouTube
+
+Health pickup and main level music created by myself using Magix Music Maker
+
+Art assets created by myself
 
 ******************/
 
@@ -28,6 +33,7 @@ let gameStart = false;
 let numOre = 14
 let ore = []
 
+//array for the wall 
 let wallNum = 3
 let wallsArray = [];
 
@@ -58,7 +64,7 @@ function preload() {
 
   goldMine = loadImage("assets/images/tunnel.jpg");
 
-// load sounds
+  // load sounds
   pickUpSound = loadSound("assets/sounds/goldPickUp.wav");
   enemyPickUpSound = loadSound("assets/sounds/EnemyPickUp.wav");
   heal = loadSound("assets/sounds/HealthPickUp.wav");
@@ -67,8 +73,9 @@ function preload() {
 }
 
 function setup() {
-mainSong.loop();
-mainSong.setVolume(0.4);
+  // play the main level soundtrack on a loop
+  mainSong.loop();
+  mainSong.setVolume(0.3);
 
   createCanvas(windowWidth, windowHeight);
   bob = new Player(100, 100, 50, 10, goodCat);
@@ -77,24 +84,22 @@ mainSong.setVolume(0.4);
   wallMouse = new Wall(500, 500, 100, 10, mouse);
   gold = new Ore(100, 100, 25, goldOre);
 
+  //array for the ore
+  for (let i = 0; i < numOre; i++) {
+    let oreX = random(0, width);
+    let oreY = random(0, height);
+    let oreSize = random([15, 20, 25, 30]);
+    ore.push(new Ore(oreX, oreY, oreSize, goldOre));
+  }
 
-//array for the ore
-for (let i = 0; i < numOre; i++){
-      let oreX = random(0, width);
-      let oreY = random(0, height);
-      let oreSize = random([15, 20, 25, 30]);
-   ore.push(new Ore(oreX, oreY, oreSize, goldOre));
-}
-
-// array for the walls
-for (let i = 0; i < wallNum; i++){
-      let wallsArrayX = random(0, width - 200);
-      let wallsArrayY = random(0, height - 200);
-      let wallsArraySize = random([100, 130, 160, 190]);
-      let wallsArraySpeed = random(5,10);
-   wallsArray.push(new Wall(wallsArrayX, wallsArrayY, wallsArraySize, wallsArraySpeed, mouse));
-}
-
+  // array for the walls
+  for (let i = 0; i < wallNum; i++) {
+    let wallsArrayX = random(0, width - 200);
+    let wallsArrayY = random(0, height - 200);
+    let wallsArraySize = random([100, 130, 160, 190]);
+    let wallsArraySpeed = random(5, 10);
+    wallsArray.push(new Wall(wallsArrayX, wallsArrayY, wallsArraySize, wallsArraySpeed, mouse));
+  }
 }
 
 // draw()
@@ -106,25 +111,20 @@ function draw() {
   if (gameStart === false) {
     titleScreen();
   } else {
-    // shows the main background and game
+    // shows the main background and game functions
     background(goldMine);
 
 
-
-   wallMouse.display();
-   wallMouse.move();
+    wallMouse.display();
+    wallMouse.move();
 
     bob.movement();
     bob.handleCollision();
     bob.display();
     bob.handlePickUp(gold);
 
-
-
-
-
     wallMouse.handleSpeed(bob);
-    //bob.handleSpeed(walls);
+
 
     healthKit.display();
     healthKit.handleRegen(bob);
@@ -133,43 +133,38 @@ function draw() {
 
     badGuy.handlePickUp(gold);
     badGuy.handleEating(bob)
-badGuy.display();
-gold.display();
+    badGuy.display();
+    gold.display();
 
-// display the ore array
+    // display the ore array
     for (let i = 0; i < ore.length; i++) {
-          push();
-          ore[i].display();
-          bob.handlePickUp(ore[i]);
-          badGuy.handlePickUp(ore[i]);
-          pop();
-}
+      push();
+      ore[i].display();
+      bob.handlePickUp(ore[i]);
+      badGuy.handlePickUp(ore[i]);
+      pop();
+    }
 
+    bob.speed = bob.normalSpeed;
+    for (let i = 0; i < wallsArray.length; i++) {
+      push();
+      wallsArray[i].display();
+      bob.display();
+      wallsArray[i].handleSpeed(bob);
+      wallsArray[i].move();
 
-  bob.speed = bob.normalSpeed;
-  for (let i = 0; i < wallsArray.length; i++) {
-        push();
-        wallsArray[i].display();
-          bob.display();
-        wallsArray[i].handleSpeed(bob);
-        wallsArray[i].move();
-
-        pop()
-}
-
-}
-
+      pop()
+    }
+  }
 
   // display gameOver screen
   if (bob.health <= 0 || badGuy.score >= 1000) {
     gameOver();
-
   }
 
   // display win screen
   if (bob.score >= 1000) {
     win();
-
   }
 }
 // code for main menu
@@ -181,8 +176,8 @@ function titleScreen() {
   textSize(100);
   text("MINING KITTY", width / 2, 100);
   textSize(35);
-  text("Be the first to reach 1000 points before the enemy does", width / 2, height / 4);
-textSize(25);
+  text("Be the first to reach 1000 points before the black cat does", width / 2, height / 4);
+  textSize(25);
   text("The mice will slow you down and distract you", width / 2, height / 3);
   text("The black cat will attack if you get too close", width / 2, height / 2.5);
   text("If you get hurt, the health pack will heal you", width / 2, height / 2);
@@ -199,8 +194,8 @@ function gameOver() {
   text("GAME OVER", width / 2, 100);
   textSize(50);
   text("Refresh to play again", width / 2, height / 2);
-
 }
+
 // code for win screen
 function win() {
   background(goldMine);
@@ -211,7 +206,6 @@ function win() {
   text("YOU WIN", width / 2, 100);
   textSize(50);
   text("Refresh to play again", width / 2, height / 2);
-
 }
 
 // starts the game on mouse pressed
