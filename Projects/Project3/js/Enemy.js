@@ -92,9 +92,9 @@ class Enemy {
     noStroke();
     fill(255, 255, 255);
     textAlign(CENTER, TOP);
-    textSize(20);
-    text("Score", 800, 50);
-    text(this.score, 800, 80);
+    textSize(50);
+    text("Enemy Score", width / 1.5, height/15);
+    text(this.score, width / 1.5, height / 7 );
     pop();
   }
 

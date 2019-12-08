@@ -28,8 +28,8 @@ let gameStart = false;
 let numOre = 14
 let ore = []
 
-let fooNum = 3
-let foo = [];
+let wallNum = 3
+let wallsArray = [];
 
 //images
 let goldOre;
@@ -86,12 +86,13 @@ for (let i = 0; i < numOre; i++){
    ore.push(new Ore(oreX, oreY, oreSize, goldOre));
 }
 
-for (let i = 0; i < fooNum; i++){
-      let fooX = random(0, width - 200);
-      let fooY = random(0, height - 200);
-      let fooSize = random([100, 130, 160, 190]);
-      let fooSpeed = random(5,10);
-   foo.push(new Wall(fooX, fooY, fooSize, fooSpeed, mouse));
+// array for the walls
+for (let i = 0; i < wallNum; i++){
+      let wallsArrayX = random(0, width - 200);
+      let wallsArrayY = random(0, height - 200);
+      let wallsArraySize = random([100, 130, 160, 190]);
+      let wallsArraySpeed = random(5,10);
+   wallsArray.push(new Wall(wallsArrayX, wallsArrayY, wallsArraySize, wallsArraySpeed, mouse));
 }
 
 }
@@ -129,10 +130,10 @@ function draw() {
     healthKit.handleRegen(bob);
 
     badGuy.move();
-    badGuy.display();
+
     badGuy.handlePickUp(gold);
     badGuy.handleEating(bob)
-
+badGuy.display();
 
 // display the ore array
     for (let i = 0; i < ore.length; i++) {
@@ -145,12 +146,12 @@ function draw() {
 
 
   bob.speed = bob.normalSpeed;
-  for (let i = 0; i < foo.length; i++) {
+  for (let i = 0; i < wallsArray.length; i++) {
         push();
-        foo[i].display();
+        wallsArray[i].display();
           bob.display();
-        foo[i].handleSpeed(bob);
-        foo[i].move();
+        wallsArray[i].handleSpeed(bob);
+        wallsArray[i].move();
 
         pop()
 }
@@ -186,7 +187,7 @@ function titleScreen() {
 
 // code for game over screen
 function gameOver() {
-  background(goldMine);
+  background(0);
 
   fill(255);
   textAlign(CENTER, TOP);

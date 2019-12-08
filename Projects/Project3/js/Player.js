@@ -59,25 +59,6 @@ class Player {
       this.vy = -this.speed;
     }
   }
-
-
-/*
-  handleSpeed(wall) {
-    // Calculate distance from this wall to the player
-    let d = dist(this.x, this.y, wall.x, wall.y);
-    // Check if the distance is less than their two radii (an overlap)
-    if (d < wall.size + this.size) {
-      // slows down the player when overlapping
-      this.speed = this.slowSpeed;
-    } else {
-
-      // back to normal speed when not overlapping
-      this.speed = this.normalSpeed;
-    }
-  }
-*/
-
-
   //handles picking up the ores and adding points.
   handlePickUp(ore) {
 
@@ -103,12 +84,12 @@ class Player {
     noStroke();
     fill(255, 255, 255);
     textAlign(CENTER, TOP);
-    textSize(20);
-    text("Score", 100, 50);
-    text(this.score, 100, 80);
+    textSize(50);
+    text("Score", width/ 3, height / 15);
+    text(this.score, width/3, height/ 7);
 
-    text("Health", 200, 50);
-    text(this.health, 200, 80);
+    text("Health", width/6, height / 15);
+    text(this.health, width/6, height / 7);
     pop();
   }
 
