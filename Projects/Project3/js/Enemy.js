@@ -59,6 +59,7 @@ class Enemy {
 
     let d = dist(this.x, this.y, ore.x, ore.y);
     if (d < ore.size + this.size) {
+      //enemy gets double the points since he moves randomy and has less chance of getting a gold ore
       this.score = this.score + ore.size * 2;
       ore.size === 0;
 

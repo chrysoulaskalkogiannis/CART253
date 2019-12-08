@@ -33,7 +33,7 @@ let gameStart = false;
 let numOre = 14
 let ore = []
 
-//array for the wall 
+//array for the wall
 let wallNum = 3
 let wallsArray = [];
 
@@ -181,7 +181,7 @@ function titleScreen() {
   text("The mice will slow you down and distract you", width / 2, height / 3);
   text("The black cat will attack if you get too close", width / 2, height / 2.5);
   text("If you get hurt, the health pack will heal you", width / 2, height / 2);
-  text("Use the up, down, left, right arrows to move", width / 2, height / 1.75);
+  text("Use the up, down, left, right arrows to move and collect the gold ore", width / 2, height / 1.75);
 }
 
 // code for game over screen
